@@ -1,6 +1,7 @@
 import Header from "@/app/components/Header";
 import HeroSection from "@/app/components/HeroSection";
 import ClientsSection from "@/app/components/ClientsSection";
+import FeaturesSection from "@/app/components/FeaturesSection";
 import ReviewsSection from "@/app/components/ReviewsSection";
 import TossPaymentsFeeSection from "@/app/components/TossPaymentsFeeSection";
 import PricingSection from "@/app/components/PricingSection";
@@ -15,6 +16,7 @@ export default function Index() {
       <Header />
       <HeroSection />
       <ClientsSection />
+      <FeaturesSection />
       <ReviewsSection />
       <TossPaymentsFeeSection />
       <PricingSection />

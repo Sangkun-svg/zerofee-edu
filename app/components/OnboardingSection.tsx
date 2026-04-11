@@ -1,3 +1,5 @@
+import {Fragment} from "react";
+
 const steps = [
   {
     number: "①",
@@ -56,7 +58,7 @@ export default function OnboardingSection() {
 
       <div className="flex items-center gap-[28px]">
         {steps.map((step, i) => (
-          <>
+          <Fragment key={step.number}>
             <div
               key={step.number}
               className="flex flex-col items-center justify-center gap-[8px] size-[208px] rounded-full border border-[var(--gray-100)] bg-[var(--gray-50)] text-center shrink-0"
@@ -69,8 +71,10 @@ export default function OnboardingSection() {
                 {step.description}
               </p>
             </div>
-            {i < steps.length - 1 && <ArrowRight key={`arrow-${i}`} />}
-          </>
+            {i < steps.length - 1 && <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+  <path d="M13.3333 5L20 12M20 12L13.3333 19M20 12L4 12" stroke="#E9ECF2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>}
+          </Fragment>
         ))}
       </div>
     </section>
