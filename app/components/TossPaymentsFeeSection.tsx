@@ -121,7 +121,7 @@ export default function TossPaymentsFeeSection() {
                       <span className="text-[#3d82f5] text-[14px] font-medium leading-[21px] tracking-[-0.21px]">
                         (
                       </span>
-                      <span className="text-[#3d82f5] text-[14px] font-medium leading-[21px] tracking-[-0.21px] w-[33px]">
+                      <span className="text-[#3d82f5] text-[14px] font-medium leading-[21px] tracking-[-0.21px] w-[36px]">
                         {row.savings}
                       </span>
                       <ArrowDown />
