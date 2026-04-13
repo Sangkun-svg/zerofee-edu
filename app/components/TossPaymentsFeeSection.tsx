@@ -1,7 +1,5 @@
-const imgTossIcon =
-  "http://localhost:3845/assets/241e7e2851339c2d114aa748a7a39d87d8026b89.png";
-const imgTossMask =
-  "http://localhost:3845/assets/6b998ac512734b8b922fc7e80e1699f2ff1adf06.png";
+const imgTossIcon = "/images/toss-icon.png";
+const imgTossMask = "/images/toss-mask.png";
 
 type FeeRow = {
   label: string;

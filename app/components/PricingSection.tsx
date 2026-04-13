@@ -1,3 +1,5 @@
+"use client";
+
 const premiumFeatures = [
   "1:1 전담 매니저 배정",
   "AI와 함께하는 교육 운영",
@@ -67,14 +69,15 @@ function PlanBadge({ name, type }: { name: string; type: string }) {
 
 function CtaButton({ label }: { label: string }) {
   return (
-    <a
-      href="#contact"
+    <button
+      type="button"
+      onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
       className="btn-gradient btn-gradient-blue border border-white flex gap-1 h-[52px] items-center justify-center px-4 py-2 rounded-[16px] w-full"
     >
       <span className="text-[#f8faff] text-[14px] font-bold leading-[21px] whitespace-nowrap">
         {label}
       </span>
-    </a>
+    </button>
   );
 }
 
