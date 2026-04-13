@@ -4,6 +4,7 @@ import { useState } from "react";
 
 type Plan = "premium" | "enterprise";
 type ContactMethod = "kakao" | "email" | "phone" | "sms";
+type Status = "idle" | "loading" | "success" | "error";
 
 function RadioCircle({ selected }: { selected: boolean }) {
   return (
@@ -23,6 +24,43 @@ export default function InquirySection() {
   const [plan, setPlan] = useState<Plan>("premium");
   const [contactMethod, setContactMethod] = useState<ContactMethod>("kakao");
   const [agreed, setAgreed] = useState(false);
+  const [institution, setInstitution] = useState("");
+  const [repName, setRepName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [comments, setComments] = useState("");
+  const [status, setStatus] = useState<Status>("idle");
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    if (!agreed) {
+      alert("개인정보 수집 및 이용에 동의해주세요.");
+      return;
+    }
+    setStatus("loading");
+    try {
+      const res = await fetch("/api/inquiry", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          plan,
+          institution,
+          representativeName: repName,
+          email,
+          phone,
+          contactMethod,
+          comments,
+        }),
+      });
+      if (!res.ok) {
+        setStatus("error");
+        return;
+      }
+      setStatus("success");
+    } catch {
+      setStatus("error");
+    }
+  }
 
   return (
     <section
@@ -45,7 +83,10 @@ export default function InquirySection() {
       </div>
 
       {/* 오른쪽: 폼 카드 */}
-      <div className="backdrop-blur-[10px] bg-[#0f1219] border border-[#1b1f2a] flex flex-1 flex-col gap-[52px] items-start p-8 rounded-[32px]">
+      <form
+        onSubmit={handleSubmit}
+        className="backdrop-blur-[10px] bg-[#0f1219] border border-[#1b1f2a] flex flex-1 flex-col gap-[52px] items-start p-8 rounded-[32px]"
+      >
         {/* 필드 그룹 */}
         <div className="flex flex-col gap-5 items-start w-full">
 
@@ -86,7 +127,10 @@ export default function InquirySection() {
               </label>
               <input
                 type="text"
+                value={institution}
+                onChange={(e) => setInstitution(e.target.value)}
                 placeholder="학원 / 기관명을 입력해주세요."
+                required
                 className="bg-[#0b0e14] border border-[#1b1f2a] h-[52px] w-full px-4 rounded-2xl text-[#f8faff] text-[14px] font-medium leading-[21px] tracking-[-0.21px] placeholder-[#a9b1c1] outline-none focus:border-[#3d82f5] transition-colors"
               />
             </div>
@@ -96,7 +140,10 @@ export default function InquirySection() {
               </label>
               <input
                 type="text"
+                value={repName}
+                onChange={(e) => setRepName(e.target.value)}
                 placeholder="성함을 입력해주세요."
+                required
                 className="bg-[#0b0e14] border border-[#1b1f2a] h-[52px] w-full px-4 rounded-2xl text-[#f8faff] text-[14px] font-medium leading-[21px] tracking-[-0.21px] placeholder-[#a9b1c1] outline-none focus:border-[#3d82f5] transition-colors"
               />
             </div>
@@ -110,7 +157,10 @@ export default function InquirySection() {
               </label>
               <input
                 type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 placeholder="이메일을 입력해주세요."
+                required
                 className="bg-[#0b0e14] border border-[#1b1f2a] h-[52px] w-full px-4 rounded-2xl text-[#f8faff] text-[14px] font-medium leading-[21px] tracking-[-0.21px] placeholder-[#a9b1c1] outline-none focus:border-[#3d82f5] transition-colors"
               />
             </div>
@@ -120,7 +170,10 @@ export default function InquirySection() {
               </label>
               <input
                 type="tel"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
                 placeholder="연락처를 입력해주세요."
+                required
                 className="bg-[#0b0e14] border border-[#1b1f2a] h-[52px] w-full px-4 rounded-2xl text-[#f8faff] text-[14px] font-medium leading-[21px] tracking-[-0.21px] placeholder-[#a9b1c1] outline-none focus:border-[#3d82f5] transition-colors"
               />
             </div>
@@ -161,6 +214,8 @@ export default function InquirySection() {
               추가 내용(선택)
             </label>
             <textarea
+              value={comments}
+              onChange={(e) => setComments(e.target.value)}
               placeholder="궁금하신 사항을 작성해주시면 해당 내용을 중심으로 상담 도와드리겠습니다."
               className="bg-[#0b0e14] border border-[#1b1f2a] h-[160px] w-full px-4 py-[14px] rounded-2xl text-[#f8faff] text-[14px] font-medium leading-[21px] tracking-[-0.21px] placeholder-[#a9b1c1] outline-none focus:border-[#3d82f5] transition-colors resize-none"
             />
@@ -193,27 +248,47 @@ export default function InquirySection() {
               보기
             </button>
           </div>
+
+          {/* 상태 메시지 */}
+          {status === "success" && (
+            <p className="text-[#3d82f5] text-[14px] font-medium w-full text-center">
+              상담 신청이 완료되었습니다. 1영업일 이내로 연락드리겠습니다.
+            </p>
+          )}
+          {status === "error" && (
+            <p className="text-red-400 text-[14px] font-medium w-full text-center">
+              신청 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.
+            </p>
+          )}
         </div>
 
         {/* 제출 버튼 */}
         <button
           type="submit"
-          className="btn-gradient btn-gradient-blue flex gap-1 h-[52px] items-center justify-center px-6 rounded-[32px] border border-white bg-gradient-to-r from-[#3d82f5] to-[#0360ef] w-full hover:opacity-90 transition-opacity"
+          disabled={status === "loading" || status === "success"}
+          className="btn-gradient btn-gradient-blue flex gap-1 h-[52px] items-center justify-center px-6 rounded-[32px] border border-white bg-gradient-to-r from-[#3d82f5] to-[#0360ef] w-full hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          {/* graduation-cap icon */}
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M8 2L1 5.5L8 9L15 5.5L8 2Z" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            <path d="M4 7.5V11C4 11 5.5 13 8 13C10.5 13 12 11 12 11V7.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            <path d="M15 5.5V9" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
-          </svg>
-          <span className="text-[#f8faff] text-[14px] font-bold leading-[21px] whitespace-nowrap">
-            도입 상담 신청하기
-          </span>
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M6 3L11 8L6 13" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
+          {status === "loading" ? (
+            <span className="text-[#f8faff] text-[14px] font-bold leading-[21px] whitespace-nowrap">
+              신청 중...
+            </span>
+          ) : (
+            <>
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8 2L1 5.5L8 9L15 5.5L8 2Z" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M4 7.5V11C4 11 5.5 13 8 13C10.5 13 12 11 12 11V7.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M15 5.5V9" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
+              </svg>
+              <span className="text-[#f8faff] text-[14px] font-bold leading-[21px] whitespace-nowrap">
+                도입 상담 신청하기
+              </span>
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6 3L11 8L6 13" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </>
+          )}
         </button>
-      </div>
+      </form>
     </section>
   );
 }
