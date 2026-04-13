@@ -54,7 +54,7 @@ function FeatureItem({ text }: { text: string }) {
 
 function PlanBadge({ name, type }: { name: string; type: string }) {
   return (
-    <div className="border border-white flex gap-1 items-center justify-center px-3 py-1 rounded-[16px] w-fit">
+    <div className="btn-gradient btn-gradient-black border border-white flex gap-1 items-center justify-center px-3 py-1 rounded-[16px] w-fit">
       <span className="text-[#f8faff] text-[16px] font-bold leading-[24px] tracking-[-0.24px] whitespace-nowrap">
         {name}
       </span>
@@ -69,10 +69,7 @@ function CtaButton({ label }: { label: string }) {
   return (
     <a
       href="#contact"
-      className="border border-white flex gap-1 h-[52px] items-center justify-center px-4 py-2 rounded-[16px] w-full"
-      style={{
-        background: "linear-gradient(90deg, #3d82f5 0%, #0360ef 100%)",
-      }}
+      className="btn-gradient btn-gradient-blue border border-white flex gap-1 h-[52px] items-center justify-center px-4 py-2 rounded-[16px] w-full"
     >
       <span className="text-[#f8faff] text-[14px] font-bold leading-[21px] whitespace-nowrap">
         {label}
@@ -100,13 +97,13 @@ export default function PricingSection() {
         <div className="flex gap-5 items-end justify-center w-full">
           {/* Premium Plan — 추천 플랜 래퍼 */}
           <div
-            className="flex flex-col items-center rounded-[16px] shrink-0 w-[440px]"
+            className="flex flex-col items-center rounded-[16px] shrink-0 w-[440px] p-1"
             style={{
               background: "linear-gradient(90deg, #3d82f5 0%, #0360ef 100%)",
             }}
           >
             {/* 추천 플랜 라벨 */}
-            <div className="flex items-center justify-center pb-1 pt-4 px-1 w-full">
+            <div className="flex items-center justify-center py-4 px-1 w-full">
               <span className="text-white text-[16px] font-bold leading-[24px] tracking-[-0.24px] whitespace-nowrap">
                 추천 플랜
               </span>

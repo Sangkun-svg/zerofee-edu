@@ -9,6 +9,7 @@ import PlanComparisonSection from "@/app/components/PlanComparisonSection";
 import OnboardingSection from "@/app/components/OnboardingSection";
 import InquirySection from "@/app/components/InquirySection";
 import FaqSection from "@/app/components/FaqSection";
+import Footer from "@/app/components/Footer";
 
 export default function Index() {
   return (
@@ -24,6 +25,7 @@ export default function Index() {
       <OnboardingSection />
       <InquirySection />
       <FaqSection />
+      <Footer />
     </main>
   );
 }

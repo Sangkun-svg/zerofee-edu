@@ -16,10 +16,45 @@
   --color-foreground: var(--foreground);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: "Pretendard", sans-serif;
+}
+
+/* Gradient border buttons */
+.btn-gradient {
+  border: 1px solid transparent;
+  background-image:
+    linear-gradient(125deg, var(--btn-color-start) 0%, var(--btn-color-mid) 50%, var(--btn-color-end) 100%),
+    linear-gradient(150deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.1) 30%),
+    linear-gradient(340deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.1) 30%),
+    linear-gradient(125deg, var(--btn-color-start) 0%, var(--btn-color-mid) 50%, var(--btn-color-end) 100%);
+  background-origin: border-box;
+  background-clip: padding-box, border-box, border-box, border-box;
+  box-sizing: border-box;
+}
+
+.btn-gradient-blue {
+  --btn-color-start: #3D82F5;
+  --btn-color-mid: #3D82F5;
+  --btn-color-end: #0360EF;
+}
+
+.btn-gradient-black {
+  --btn-color-start: #2A2D3E;
+  --btn-color-mid: #2A2D3E;
+  --btn-color-end: #2A2D3E;
+}
+
+.btn-gradient-yellow {
+  --btn-color-start: #FAE100;
+  --btn-color-mid: #FAE100;
+  --btn-color-end: #FAC800;
 }
 
 @keyframes marquee {
@@ -29,8 +64,4 @@ body {
 
 .animate-marquee {
   animation: marquee 30s linear infinite;
-}
-
-.animate-marquee:hover {
-  animation-play-state: paused;
 }

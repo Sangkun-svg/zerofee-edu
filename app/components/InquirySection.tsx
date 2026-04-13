@@ -175,17 +175,11 @@ export default function InquirySection() {
             >
               <div
                 className={`flex items-center justify-center p-0.5 rounded-[8px] size-6 transition-colors ${
-                  agreed ? "bg-[#3e00bb]" : "bg-[#1b1f2a]"
+                  agreed ? "bg-[#3d82f5]" : "bg-[#1b1f2a]"
                 }`}
               >
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M3 8L6.5 11.5L13 5"
-                    stroke={agreed ? "white" : "#2a2f3d"}
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path d="M14 7L8.03374 13L6 10.9548" stroke={agreed ? "white" : "#2a2f3d"} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </div>
               <span className="text-[#f8faff] text-[14px] font-medium leading-[21px] tracking-[-0.14px] whitespace-nowrap">
@@ -204,7 +198,7 @@ export default function InquirySection() {
         {/* 제출 버튼 */}
         <button
           type="submit"
-          className="flex gap-1 h-[52px] items-center justify-center px-6 rounded-[32px] border border-white bg-gradient-to-r from-[#3d82f5] to-[#0360ef] w-full hover:opacity-90 transition-opacity"
+          className="btn-gradient btn-gradient-blue flex gap-1 h-[52px] items-center justify-center px-6 rounded-[32px] border border-white bg-gradient-to-r from-[#3d82f5] to-[#0360ef] w-full hover:opacity-90 transition-opacity"
         >
           {/* graduation-cap icon */}
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">

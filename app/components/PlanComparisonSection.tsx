@@ -3,11 +3,11 @@ function CheckIcon() {
     <div className="size-6 rounded-full bg-[#3d82f5] flex items-center justify-center shrink-0">
 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M0.77735 23.4818C0.445073 23.7033 3.89408e-07 23.4651 3.61952e-07 23.0657L-1.18954e-06 0.500004C-1.20853e-06 0.223862 0.223856 3.80631e-06 0.499999 3.79596e-06L23.5 2.93422e-06C23.7761 2.92388e-06 24 0.223861 24 0.500003L24 23.0657C24 23.4651 23.5549 23.7033 23.2226 23.4818L21.2773 22.1849C21.1094 22.0729 20.8906 22.0729 20.7226 22.1849L18.2773 23.8151C18.1094 23.9271 17.8906 23.9271 17.7226 23.8151L15.2773 22.1849C15.1094 22.0729 14.8906 22.0729 14.7226 22.1849L12.2773 23.8151C12.1094 23.9271 11.8906 23.9271 11.7226 23.8151L9.27735 22.1849C9.1094 22.0729 8.8906 22.0729 8.72265 22.1849L6.27735 23.8151C6.1094 23.9271 5.8906 23.9271 5.72265 23.8151L3.27735 22.1849C3.1094 22.0729 2.8906 22.0729 2.72265 22.1849L0.77735 23.4818Z" fill="#0360EF"/>
-<path d="M16.5 8.00013L14.1729 10.3959L10.8459 14L7.5 10.3959" stroke="url(#paint0_linear_1329_7078)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M16.5 8.00013L14.1729 10.3959L10.8459 14L7.5 10.3959" stroke="url(#paint0_linear_1329_7078)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
 <defs>
 <linearGradient id="paint0_linear_1329_7078" x1="13.0389" y1="6.79228" x2="13.0389" y2="14.0004" gradientUnits="userSpaceOnUse">
-<stop stop-color="white"/>
-<stop offset="1" stop-color="white" stop-opacity="0.8"/>
+<stop stopColor="white"/>
+<stop offset="1" stopColor="white" stopOpacity="0.8"/>
 </linearGradient>
 </defs>
 </svg>
