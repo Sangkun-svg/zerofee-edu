@@ -81,11 +81,125 @@ function CtaButton({ label }: { label: string }) {
   );
 }
 
+function PremiumCard({ mobile }: { mobile?: boolean }) {
+  const p = mobile ? "p-6" : "p-8";
+  const gap = mobile ? "gap-6" : "gap-8";
+  return (
+    <div
+      className="flex flex-col items-center rounded-[16px] w-full p-1"
+      style={{ background: "linear-gradient(90deg, #3d82f5 0%, #0360ef 100%)" }}
+    >
+      <div className="flex items-center justify-center py-4 px-1 w-full">
+        <span className="text-white text-[16px] font-bold leading-[24px] tracking-[-0.24px] whitespace-nowrap">
+          추천 플랜
+        </span>
+      </div>
+      <div
+        className={`flex flex-col ${gap} items-start ${p} rounded-[16px] w-full`}
+        style={{ background: "linear-gradient(180deg, #262c3a 0%, #0f1219 100%)" }}
+      >
+        <div className="flex flex-col gap-6 items-start w-full">
+          <PlanBadge name="Premium" type="Plan" />
+          <div className="flex flex-col gap-4 items-start w-full">
+            <div className="flex flex-col items-start w-full">
+              <p className="text-[#a9b1c1] text-[14px] font-medium leading-[21px] tracking-[-0.21px] line-through">
+                월 / 440,000원
+              </p>
+              <div className="flex gap-2 items-center">
+                <span className="text-[#f8faff] text-[20px] font-bold leading-[30px] tracking-[-0.3px] whitespace-nowrap">
+                  월 / 330,000원
+                </span>
+                <div className="flex items-center">
+                  <span className="text-[#f98585] text-[20px] font-bold leading-[30px] tracking-[-0.3px] whitespace-nowrap">
+                    25%
+                  </span>
+                  <ArrowDownRed />
+                </div>
+              </div>
+              <p className="text-[#e9ecf2] text-[14px] font-normal leading-[1.5] tracking-[-0.28px] w-full">
+                AI와 함께 자동으로 운영하는 인강 플랫폼
+              </p>
+            </div>
+            <CtaButton label="도입 상담 신청하기" />
+          </div>
+        </div>
+        <div className="h-px w-full bg-[#2a2f3a]" />
+        <div className="flex flex-col gap-2 items-start">
+          {premiumFeatures.map((f) => (
+            <FeatureItem key={f} text={f} />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function EnterpriseCard({ mobile }: { mobile?: boolean }) {
+  const p = mobile ? "p-6" : "p-8";
+  const gap = mobile ? "gap-8" : "gap-8";
+  const h = mobile ? "" : "h-[610px]";
+  return (
+    <div
+      className={`flex flex-col ${gap} ${h} items-start ${p} rounded-[16px] w-full`}
+      style={{ background: "linear-gradient(180deg, #262c3a 0%, #0f1219 100%)" }}
+    >
+      <div className="flex flex-col gap-6 items-start w-full">
+        <PlanBadge name="Enterprise" type="Plan" />
+        <div className="flex flex-col gap-4 items-start w-full">
+          <div className="flex flex-col items-start w-full">
+            <p className="text-[#a9b1c1] text-[14px] font-medium leading-[21px] tracking-[-0.21px] line-through">
+              월 / 협의
+            </p>
+            <span className="text-[#f8faff] text-[20px] font-bold leading-[30px] tracking-[-0.3px] whitespace-nowrap">
+              월 / 협의
+            </span>
+            <p className="text-[#e9ecf2] text-[14px] font-normal leading-[1.5] tracking-[-0.28px] w-full">
+              맞춤형 관리 시스템으로 운영하는 완성형 교육 플랫폼
+            </p>
+          </div>
+          <CtaButton label="컨설팅 문의하기" />
+        </div>
+      </div>
+      <div className="h-px w-full bg-[#2a2f3a]" />
+      <div className="flex flex-col gap-4 items-start">
+        <span className="text-[#f8faff] text-[14px] font-medium leading-[21px] tracking-[-0.21px] whitespace-nowrap">
+          Premium Plan의 모든 기능 +
+        </span>
+        <div className="flex flex-col gap-2 items-start">
+          {enterpriseFeatures.map((f) => (
+            <FeatureItem key={f} text={f} />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function PricingSection() {
   return (
-    <section className="w-full bg-[#0b0e14] py-36">
-      <div className="flex flex-col gap-[52px] items-center w-full">
-        {/* 헤더 */}
+    <section className="w-full bg-[#0b0e14] py-[104px] md:py-36">
+      {/* 모바일 */}
+      <div className="flex md:hidden flex-col gap-8 items-center px-5">
+        <div className="flex flex-col gap-2 items-center text-center w-full">
+          <h2 className="text-[#f8faff] text-[28px] font-bold leading-[36px] tracking-[-0.42px] w-full">
+            운영을 최적화 할 플랜을
+            <br />
+            선택해보세요
+          </h2>
+          <p className="text-[#f8faff] text-[14px] font-medium leading-[21px] tracking-[-0.21px] w-full">
+            가장 쉽고 편리한 교육 환경,
+            <br />
+            지금 우리 수강생들에게 맞는 최적의 플랜을 선택해보세요.
+          </p>
+        </div>
+        <div className="flex flex-col gap-5 w-full">
+          <PremiumCard mobile />
+          <EnterpriseCard mobile />
+        </div>
+      </div>
+
+      {/* 데스크탑 */}
+      <div className="hidden md:flex flex-col gap-[52px] items-center w-full">
         <div className="flex flex-col gap-2 items-center text-center w-[468px]">
           <h2 className="text-[#f8faff] text-[28px] font-bold leading-[36px] tracking-[-0.42px] w-full">
             운영을 최적화 할 플랜을 선택해보세요
@@ -95,110 +209,12 @@ export default function PricingSection() {
             플랜을 선택해보세요.
           </p>
         </div>
-
-        {/* 카드 그룹 */}
-        <div className="flex gap-5 items-end justify-center w-full">
-          {/* Premium Plan — 추천 플랜 래퍼 */}
-          <div
-            className="flex flex-col items-center rounded-[16px] shrink-0 w-[440px] p-1"
-            style={{
-              background: "linear-gradient(90deg, #3d82f5 0%, #0360ef 100%)",
-            }}
-          >
-            {/* 추천 플랜 라벨 */}
-            <div className="flex items-center justify-center py-4 px-1 w-full">
-              <span className="text-white text-[16px] font-bold leading-[24px] tracking-[-0.24px] whitespace-nowrap">
-                추천 플랜
-              </span>
-            </div>
-
-            {/* 카드 내부 */}
-            <div
-              className="flex flex-col gap-8 items-start p-8 rounded-[16px] w-full"
-              style={{
-                background:
-                  "linear-gradient(180deg, #262c3a 0%, #0f1219 100%)",
-              }}
-            >
-              {/* 플랜 정보 */}
-              <div className="flex flex-col gap-6 items-start w-full">
-                <PlanBadge name="Premium" type="Plan" />
-                <div className="flex flex-col gap-4 items-start w-full">
-                  <div className="flex flex-col items-start w-full">
-                    <p className="text-[#a9b1c1] text-[14px] font-medium leading-[21px] tracking-[-0.21px] line-through">
-                      월 / 440,000원
-                    </p>
-                    <div className="flex gap-2 items-center">
-                      <span className="text-[#f8faff] text-[20px] font-bold leading-[30px] tracking-[-0.3px] whitespace-nowrap">
-                        월 / 330,000원
-                      </span>
-                      <div className="flex items-center">
-                        <span className="text-[#f98585] text-[20px] font-bold leading-[30px] tracking-[-0.3px] whitespace-nowrap">
-                          25%
-                        </span>
-                        <ArrowDownRed />
-                      </div>
-                    </div>
-                    <p className="text-[#e9ecf2] text-[14px] font-normal leading-[1.5] tracking-[-0.28px] w-full">
-                      AI와 함께 자동으로 운영하는 인강 플랫폼
-                    </p>
-                  </div>
-                  <CtaButton label="도입 상담 신청하기" />
-                </div>
-              </div>
-
-              {/* 구분선 */}
-              <div className="h-px w-full bg-[#2a2f3a]" />
-
-              {/* 기능 목록 */}
-              <div className="flex flex-col gap-2 items-start">
-                {premiumFeatures.map((f) => (
-                  <FeatureItem key={f} text={f} />
-                ))}
-              </div>
-            </div>
+        <div className="flex gap-5 items-end justify-center w-full px-10">
+          <div className="max-w-[440px] w-full min-w-0">
+            <PremiumCard />
           </div>
-
-          {/* Enterprise Plan */}
-          <div
-            className="flex flex-col gap-8 h-[610px] items-start p-8 rounded-[16px] shrink-0 w-[440px]"
-            style={{
-              background: "linear-gradient(180deg, #262c3a 0%, #0f1219 100%)",
-            }}
-          >
-            {/* 플랜 정보 */}
-            <div className="flex flex-col gap-6 items-start w-full">
-              <PlanBadge name="Enterprise" type="Plan" />
-              <div className="flex flex-col gap-4 items-start w-full">
-                <div className="flex flex-col items-start w-full">
-                  <p className="text-[#a9b1c1] text-[14px] font-medium leading-[21px] tracking-[-0.21px] line-through">
-                    월 / 협의
-                  </p>
-                  <span className="text-[#f8faff] text-[20px] font-bold leading-[30px] tracking-[-0.3px] whitespace-nowrap">
-                    월 / 협의
-                  </span>
-                  <p className="text-[#e9ecf2] text-[14px] font-normal leading-[1.5] tracking-[-0.28px] w-full">
-                    맞춤형 관리 시스템으로 운영하는 완성형 교육 플랫폼
-                  </p>
-                </div>
-                <CtaButton label="컨설팅 문의하기" />
-              </div>
-            </div>
-
-            {/* 구분선 */}
-            <div className="h-px w-full bg-[#2a2f3a]" />
-
-            {/* 기능 목록 */}
-            <div className="flex flex-col gap-4 items-start">
-              <span className="text-[#f8faff] text-[14px] font-medium leading-[21px] tracking-[-0.21px] whitespace-nowrap">
-                Premium Plan의 모든 기능 +
-              </span>
-              <div className="flex flex-col gap-2 items-start">
-                {enterpriseFeatures.map((f) => (
-                  <FeatureItem key={f} text={f} />
-                ))}
-              </div>
-            </div>
+          <div className="max-w-[440px] w-full min-w-0">
+            <EnterpriseCard />
           </div>
         </div>
       </div>

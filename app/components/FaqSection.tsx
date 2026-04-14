@@ -51,12 +51,12 @@ const faqs = [
 
 export default function FaqSection() {
   return (
-    <section className="flex flex-col items-center gap-[52px] py-[144px] w-full">
+    <section className="flex flex-col items-center gap-8 md:gap-[52px] py-[104px] md:py-[144px] px-5 md:px-10 w-full">
       <h2 className="text-[#fefefe] text-[28px] font-bold leading-[36px] tracking-[-0.42px] text-center">
         자주 묻는 질문
       </h2>
 
-      <div className="flex flex-col gap-2 w-full max-w-[800px]">
+      <div className="flex flex-col gap-2 w-full md:max-w-[800px]">
         {faqs.map((faq, i) => (
           <div
             key={i}

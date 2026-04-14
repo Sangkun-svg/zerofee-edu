@@ -14,25 +14,46 @@ const clients = [
 
 export default function ClientsSection() {
   return (
-    <section className="w-full py-36 flex flex-col items-center gap-[52px]">
+    <section className="w-full py-[104px] md:py-36 flex flex-col items-center gap-8 md:gap-[52px] px-5 md:px-0">
       <h2 className="text-[#fefefe] text-[28px] font-bold leading-[36px] tracking-[-0.42px] text-center">
         많은 학원과 강사님들이
         <br />
         제로피에듀와 함께하고 있어요
       </h2>
 
-      <div className="flex flex-col items-center gap-5">
-        <div className="flex gap-5">
+      {/* 모바일: 3줄 마퀴 */}
+      <div className="md:hidden flex flex-col gap-5 w-full overflow-hidden">
+        {[
+          clients.slice(0, 4),
+          clients.slice(4, 8),
+          clients.slice(8),
+        ].map((row, rowIdx) => (
+          <div
+            key={rowIdx}
+            className={`flex gap-8 w-max ${rowIdx === 1 ? "animate-marquee-reverse" : "animate-marquee"}`}
+          >
+            {[...row, ...row].map((client, i) => (
+              <div key={`${client.name}-${i}`} className="h-[60px] flex items-center justify-center shrink-0">
+                <img src={client.logo} alt={client.name} style={{ height: client.height, width: client.width }} />
+              </div>
+            ))}
+          </div>
+        ))}
+      </div>
+
+      {/* 데스크탑: 반응형 2줄 */}
+      <div className="hidden md:flex flex-col items-center gap-5 w-full max-w-[1360px] px-10">
+        <div className="flex flex-wrap justify-center gap-5">
           {clients.slice(0, 6).map((client) => (
-            <div key={client.name} className="w-[180px] h-[60px] flex items-center justify-center">
-              <img src={client.logo} alt={client.name} style={{ height: client.height, width: client.width }} />
+            <div key={client.name} className="flex-1 min-w-0 h-[60px] flex items-center justify-center">
+              <img src={client.logo} alt={client.name} style={{ height: client.height, width: client.width }} className="max-w-full" />
             </div>
           ))}
         </div>
-        <div className="flex gap-5">
+        <div className="flex flex-wrap justify-center gap-5">
           {clients.slice(6).map((client) => (
-            <div key={client.name} className="w-[180px] h-[60px] flex items-center justify-center">
-              <img src={client.logo} alt={client.name} style={{ height: client.height, width: client.width }} />
+            <div key={client.name} className="flex-1 min-w-0 h-[60px] flex items-center justify-center">
+              <img src={client.logo} alt={client.name} style={{ height: client.height, width: client.width }} className="max-w-full" />
             </div>
           ))}
         </div>

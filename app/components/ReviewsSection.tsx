@@ -60,9 +60,9 @@ const reviews = [
   },
 ];
 
-function ReviewCard({ review }: { review: (typeof reviews)[0] }) {
+function ReviewCard({ review, mobile }: { review: (typeof reviews)[0]; mobile?: boolean }) {
   return (
-    <div className="flex flex-col gap-5 items-start p-5 bg-[#0f1219] border border-[#1b1f2a] rounded-2xl shrink-0 w-[540px]">
+    <div className={`flex flex-col gap-5 items-start p-5 bg-[#0f1219] border border-[#1b1f2a] rounded-2xl shrink-0 ${mobile ? "w-[280px]" : "w-[540px]"}`}>
       {/* Header */}
       <div className="flex gap-3 items-center">
         <div className="size-10 rounded-2xl bg-[#F8FAFF] border border-[#2a2f3d] flex items-center justify-center shrink-0">
@@ -97,18 +97,28 @@ function ReviewCard({ review }: { review: (typeof reviews)[0] }) {
 }
 
 export default function ReviewsSection() {
-  const doubled = [...reviews, ...reviews];
+  const row1 = [...reviews, ...reviews];
+  const desktopDoubled = [...reviews, ...reviews];
 
   return (
-    <section className="flex flex-col gap-[52px] items-center py-[144px] overflow-hidden">
+    <section className="flex flex-col gap-8 md:gap-[52px] items-center py-[104px] md:py-[144px] overflow-hidden">
       <h2 className="text-[#f8faff] text-[28px] font-bold leading-9 tracking-[-0.42px] text-center shrink-0">
         학원 및 강사님 후기
       </h2>
 
-      <div className="w-full overflow-hidden">
+      <div className="md:hidden flex flex-col gap-3 w-full overflow-hidden">
+        <div className="flex gap-3 animate-marquee w-max">
+          {row1.map((review, i) => (
+            <ReviewCard key={`r1-${review.id}-${i}`} review={review} mobile={true} />
+          ))}
+        </div>
+      </div>
+
+      {/* 데스크톱: 1줄 마퀴 */}
+      <div className="hidden md:block w-full overflow-hidden">
         <div className="flex gap-[9px] animate-marquee w-max">
-          {doubled.map((review, i) => (
-            <ReviewCard key={`${review.id}-${i}`} review={review} />
+          {desktopDoubled.map((review, i) => (
+            <ReviewCard key={`${review.id}-${i}`} review={review} mobile={false} />
           ))}
         </div>
       </div>

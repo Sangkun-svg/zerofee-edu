@@ -15,6 +15,7 @@ function CheckIcon() {
   );
 }
 
+
 function Divider({ highlight }: { highlight?: boolean }) {
   return <div className={`h-px w-full ${highlight ? "bg-[#2a2f3d]" : "bg-[#1b1f2a]"}`} />;
 }
@@ -64,46 +65,81 @@ const rows: Row[] = [
   { feature: "맞춤형 기능", premium: "dash", enterprise: "check" },
 ];
 
-function Cell({ value, isSubtext }: { value: CellValue; isSubtext?: boolean }) {
+function Cell({ value, isSubtext, mobile }: { value: CellValue; isSubtext?: boolean; mobile?: boolean }) {
+  const textSm = mobile ? "text-[12px] leading-[18px] tracking-[-0.18px]" : "text-[14px] leading-[21px] tracking-[-0.21px]";
   if (value === "check") return <CheckIcon />;
 
   if (value === "dash") {
-    return (
-      <span className="text-[#f8faff] text-[14px] font-medium leading-[21px] tracking-[-0.21px]">
-        -
-      </span>
-    );
+    return <span className={`text-[#f8faff] font-medium ${textSm}`}>-</span>;
   }
 
   if (isSubtext && value.includes("\n")) {
     const [main, sub] = value.split("\n");
     return (
       <div className="text-center">
-        <p className="text-[#f8faff] text-[14px] font-medium leading-[21px] tracking-[-0.21px]">{main}</p>
-        <p className="text-[#f8faff] text-[12px] font-medium leading-[18px] tracking-[-0.18px]">{sub}</p>
+        <p className={`text-[#f8faff] font-medium ${textSm}`}>{main}</p>
+        <p className={`text-[#f8faff] font-medium ${mobile ? "text-[11px] leading-[16px]" : "text-[12px] leading-[18px]"} tracking-[-0.18px]`}>{sub}</p>
       </div>
     );
   }
 
   return (
-    <span className="text-[#f8faff] text-[14px] font-medium leading-[21px] tracking-[-0.21px] text-center">
+    <span className={`text-[#f8faff] font-medium ${textSm} text-center`}>
       {value}
     </span>
   );
 }
 
-// Index of the divider that should be highlighted (before the Enterprise-only section)
-const HIGHLIGHT_DIVIDER_BEFORE = 11; // before row index 11
+const HIGHLIGHT_DIVIDER_BEFORE = 11;
 
 export default function PlanComparisonSection() {
   return (
-    <section className="flex flex-col gap-[52px] items-center py-[144px]">
+    <section className="flex flex-col gap-8 md:gap-[52px] items-center py-[104px] md:py-[144px]">
       <h2 className="text-[#f8faff] text-[28px] font-bold leading-9 tracking-[-0.42px] text-center">
         플랜 비교
       </h2>
 
-      <div className="w-[1360px]">
-        {/* Header row */}
+      {/* 모바일 */}
+      <div className="flex md:hidden flex-col w-full px-5">
+        <div className="bg-[#0f1219] flex h-[64px] items-center rounded-[16px] mb-5">
+          <div className="flex flex-1 h-full items-center justify-center px-3">
+            <span className="text-white text-[12px] font-bold leading-[18px] tracking-[0.18px] whitespace-nowrap">핵심 기능</span>
+          </div>
+          <ColDivider />
+          <div className="flex flex-1 h-full items-center justify-center">
+            <span className="text-white text-[12px] font-bold leading-[18px] tracking-[0.18px] whitespace-nowrap">Premium Plan</span>
+          </div>
+          <ColDivider />
+          <div className="flex flex-1 h-full items-center justify-center">
+            <span className="text-white text-[12px] font-bold leading-[18px] tracking-[0.18px] whitespace-nowrap">Enterprise Plan</span>
+          </div>
+        </div>
+
+        <div className="flex flex-col gap-2">
+          {rows.map((row, i) => (
+            <div key={row.feature}>
+              {i === HIGHLIGHT_DIVIDER_BEFORE && <Divider highlight />}
+              <div className="flex items-center w-full">
+                <div className="flex flex-1 min-h-[52px] items-center justify-center px-3">
+                  <span className="text-[#f8faff] text-[11px] font-medium leading-[16px] tracking-[-0.18px] text-center">
+                    {row.feature}
+                  </span>
+                </div>
+                <div className="flex flex-1 min-h-[52px] items-center justify-center px-1">
+                  <Cell value={row.premium} isSubtext={row.isSubtext} mobile />
+                </div>
+                <div className="flex flex-1 min-h-[52px] items-center justify-center px-1">
+                  <Cell value={row.enterprise} isSubtext={row.isSubtext} mobile />
+                </div>
+              </div>
+              {i < rows.length - 1 && i !== HIGHLIGHT_DIVIDER_BEFORE - 1 && <Divider />}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* 데스크탑 */}
+      <div className="hidden md:block w-full max-w-[1360px] px-10">
         <div className="bg-[#0f1219] flex h-[80px] items-center rounded-2xl mb-5">
           <div className="flex flex-1 h-full items-center justify-center px-8">
             <span className="text-white text-[14px] font-bold leading-[21px]">핵심 기능</span>
@@ -122,23 +158,19 @@ export default function PlanComparisonSection() {
           </div>
         </div>
 
-        {/* Data rows */}
         <div className="flex flex-col gap-2">
           {rows.map((row, i) => (
             <div key={row.feature}>
               {i === HIGHLIGHT_DIVIDER_BEFORE && <Divider highlight />}
               <div className="flex items-center justify-between w-full">
-                {/* Feature */}
                 <div className="flex flex-1 h-[52px] items-center justify-center px-8">
                   <span className="text-[#f8faff] text-[14px] font-medium leading-[21px] tracking-[-0.21px] whitespace-nowrap">
                     {row.feature}
                   </span>
                 </div>
-                {/* Premium */}
                 <div className="flex flex-1 h-[52px] items-center justify-center px-8">
                   <Cell value={row.premium} isSubtext={row.isSubtext} />
                 </div>
-                {/* Enterprise */}
                 <div className="flex flex-1 h-[52px] items-center justify-center px-2">
                   <Cell value={row.enterprise} isSubtext={row.isSubtext} />
                 </div>

@@ -65,3 +65,7 @@ body {
 .animate-marquee {
   animation: marquee 30s linear infinite;
 }
+
+.animate-marquee-reverse {
+  animation: marquee 30s linear infinite reverse;
+}
