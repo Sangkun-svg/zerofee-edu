@@ -7,7 +7,7 @@ const features = [
       "바로 열람할 수 있으며, 캡처 및 녹화 방지 기술을 적용해",
       "콘텐츠 유출을 완벽하게 차단합니다.",
     ],
-    mock: "video",
+    pcImg: "feature-pc-1.png",
     mobileImg: "/images/feature-mobile-1.png",
   },
   {
@@ -17,7 +17,7 @@ const features = [
       "결제 완료 알림, 학습 리포트 등",
       "필요한 내용은 모두 카카오 알림톡으로 자동 발송됩니다.",
     ],
-    mock: "kakao",
+    pcImg: "feature-pc-2.png",
     mobileImg: "/images/feature-mobile-2.png",
   },
   {
@@ -28,7 +28,7 @@ const features = [
       "선생님의 부담은 절반으로 줄일 수 있습니다.",
       "AI가 완성하는 스마트한 질의응답 시스템을 경험해 보세요.",
     ],
-    mock: "ai",
+    pcImg: "feature-pc-3.png",
     mobileImg: "/images/feature-mobile-2.png",
   },
   {
@@ -39,276 +39,11 @@ const features = [
       "일반 PG사 계약보다 최대 0.5% 낮은 수수료로",
       "결제 모듈을 제공합니다.",
     ],
-    mock: "payment",
+    pcImg: "feature-pc-4.png",
     mobileImg: "/images/feature-mobile-2.png",
   },
 ];
 
-// Feature 1: Video player mock
-function VideoMock() {
-  return (
-    <div className="flex flex-col gap-[32px] w-full">
-      {/* Header */}
-      <div className="flex flex-col gap-[20px]">
-        <div className="flex items-start justify-between gap-[8px]">
-          <div className="flex flex-col gap-[8px] min-w-0">
-            <span className="text-[24px] font-bold text-[#e9ecf2] tracking-[-0.36px] leading-[32px] whitespace-nowrap">
-              지수함수와 로그함수
-            </span>
-            <div className="flex gap-[8px] items-center text-[18px] font-medium text-[#e9ecf2] tracking-[-0.27px] leading-[26px]">
-              <span className="whitespace-nowrap">지수</span>
-              <span>-</span>
-              <span className="whitespace-nowrap">거듭제곱과 거듭제곱근의 뜻과 성질</span>
-            </div>
-          </div>
-          <div className="flex items-center gap-[4px] shrink-0">
-            <img src="/icons/features/alert-circle.svg" alt="" className="size-[20px]" />
-            <span className="text-[14px] font-bold text-[#b4d9fb] leading-[21px] whitespace-nowrap">
-              해당 콘텐츠의 보호되고 있습니다.
-            </span>
-          </div>
-        </div>
-
-        {/* Video thumbnail */}
-        <div className="relative h-[284px] w-full rounded-[12px] overflow-hidden">
-          <img
-            src="/images/features-video-bg.png"
-            alt=""
-            className="absolute inset-0 w-full h-full object-cover opacity-50"
-          />
-          <img
-            src="/images/features-video-thumb.png"
-            alt="lecture video"
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-          {/* Video controls overlay */}
-          <div className="absolute bottom-0 left-0 right-0 p-[16px] flex flex-col gap-[8px]">
-            <img
-              src="/images/features-video-progress-bg.png"
-              alt=""
-              className="absolute inset-0 w-full h-full object-cover pointer-events-none"
-            />
-            {/* Progress bar */}
-            <div className="relative h-[2px] w-full rounded-full bg-black/50 mt-1">
-              <div className="h-[2px] w-[44px] rounded-full bg-white/50" />
-              <div className="absolute top-1/2 -translate-y-1/2 left-[44px] size-[10px] rounded-full bg-white -ml-[5px]" />
-            </div>
-            {/* Controls row */}
-            <div className="flex items-center justify-between">
-              <div className="flex gap-[8px] items-center">
-                <div className="size-[32px] rounded-full bg-black/50 flex items-center justify-center pl-[3px]">
-                  <img src="/icons/features/play.svg" alt="play" className="size-[20px]" />
-                </div>
-                <div className="size-[32px] rounded-full bg-black/50 flex items-center justify-center">
-                  <img src="/icons/features/volume.svg" alt="volume" className="size-[24px]" />
-                </div>
-                <div className="h-[32px] px-[12px] rounded-full bg-black/50 flex items-center">
-                  <span className="text-[14px] font-medium text-white tracking-[-0.21px] leading-[21px] whitespace-nowrap">
-                    0:01 / 15:32
-                  </span>
-                </div>
-              </div>
-              <div className="flex gap-[8px] items-center">
-                <div className="size-[32px] rounded-full bg-black/50 flex items-center justify-center">
-                  <img src="/icons/features/fast-forward.svg" alt="fast-forward" className="size-[20px]" />
-                </div>
-                <div className="size-[32px] rounded-full bg-black/50 flex items-center justify-center">
-                  <img src="/icons/features/expand.svg" alt="fullscreen" className="size-[20px]" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Comments section */}
-      <div className="flex flex-col gap-[16px]">
-        <span className="text-[20px] font-bold text-[#e9ecf2] tracking-[-0.3px] leading-[30px]">
-          댓글
-        </span>
-        <div className="flex flex-col gap-[8px]">
-          {/* Student comment */}
-          <div className="flex flex-col gap-[8px]">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-[4px]">
-                <div className="size-[16px] rounded-full bg-[#1b1f2a] flex items-center justify-center">
-                  <img src="/icons/features/user-profile.svg" alt="" className="size-[10px]" />
-                </div>
-                <span className="text-[12px] font-medium text-[#e9ecf2] tracking-[-0.18px] leading-[18px]">
-                  이동규 학생
-                </span>
-              </div>
-              <span className="text-[12px] font-medium text-[#a9b1c1] tracking-[-0.18px] leading-[18px]">
-                2026. 02. 09
-              </span>
-            </div>
-            <p className="text-[14px] font-medium text-[#e9ecf2] tracking-[-0.21px] leading-[21px]">
-              선생님, 강의 잘 들었습니다! 그런데 개념 복습을 하다가 너무 헷갈리는 부분이 생겨서 질문<br />
-              남깁니다. ㅠㅠ 교재를 보니까 &apos;-8의 세제곱근&apos;이랑 &apos;세제곱근 -8&apos;이라는 말이 나오는데,<br />
-              이 두 개가 같은 건가요?
-            </p>
-            <div className="flex justify-end">
-              <span className="text-[12px] font-medium text-[#a9b1c1] tracking-[-0.18px] leading-[18px]">
-                수정하기 · 삭제하기
-              </span>
-            </div>
-          </div>
-
-          {/* Teacher reply */}
-          <div className="flex gap-[8px] items-start">
-            <img src="/icons/features/reply-arrow.svg" alt="" className="size-[16px] mt-[1px] shrink-0 -scale-x-100" />
-            <div className="flex flex-col gap-[8px] flex-1 min-w-0">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-[4px]">
-                  <div className="size-[16px] rounded-full overflow-hidden shrink-0">
-                    <img src="/images/features-teacher-profile.png" alt="" className="size-full object-cover" />
-                  </div>
-                  <span className="text-[12px] font-medium text-[#e9ecf2] tracking-[-0.18px] leading-[18px]">
-                    홍길동 선생님
-                  </span>
-                </div>
-                <span className="text-[12px] font-medium text-[#a9b1c1] tracking-[-0.18px] leading-[18px]">
-                  2026. 02. 09
-                </span>
-              </div>
-              <p className="text-[14px] font-medium text-[#e9ecf2] tracking-[-0.21px] leading-[21px]">
-                안녕하세요, 수포자탈출기님! 아주 예리하고 좋은 질문입니다! 😊 결론부터 말씀드리면, 두 가지는 전혀 다른 의미를 가집니다.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* Input */}
-        <div className="h-[52px] bg-[#0b0e14] border border-[#1b1f2a] rounded-[16px] flex items-center justify-between px-[16px]">
-          <span className="text-[14px] font-medium text-[#f8faff] tracking-[-0.21px] leading-[21px] truncate">
-            와 드디어 다크 모드가 나왔네요! 👏 밤에 작업할 때마다 눈이 너무 부셨는데 정말 감사합니다.
-          </span>
-          <div className="size-[32px] rounded-full bg-[#3d82f5] flex items-center justify-center shrink-0 ml-2">
-            <img src="/icons/features/arrow-up.svg" alt="send" className="size-[16px]" />
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-// Feature 2: KakaoTalk payment notification mock
-function KakaoMock() {
-  return (
-    <div className="relative w-full h-full overflow-hidden rounded-[16px]">
-      <img
-        src="/images/features-kakao-message.png"
-        alt="카카오 알림톡 결제 완료"
-        className="absolute inset-0 w-full h-full object-cover object-top"
-      />
-    </div>
-  );
-}
-
-// Feature 3: AI Q&A mock
-function AIMock() {
-  return (
-    <div className="flex flex-col gap-[32px] w-full">
-      {/* Header */}
-      <div className="flex flex-col gap-[8px]">
-        <span className="text-[24px] font-bold text-[#e9ecf2] tracking-[-0.36px] leading-[32px] whitespace-nowrap">
-          지수함수와 로그함수
-        </span>
-        <div className="flex gap-[8px] items-center text-[18px] font-medium text-[#e9ecf2] tracking-[-0.27px] leading-[26px]">
-          <span className="whitespace-nowrap">지수</span>
-          <span>-</span>
-          <span className="whitespace-nowrap">거듭제곱근 기초 연산 및 개념 확인 문제</span>
-        </div>
-      </div>
-
-      {/* Q&A comments */}
-      <div className="flex flex-col gap-[8px]">
-        {/* Student question with PDF */}
-        <div className="flex flex-col gap-[8px]">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-[4px]">
-              <div className="size-[16px] rounded-full bg-[#1b1f2a] flex items-center justify-center">
-                <img src="/icons/features/user-profile.svg" alt="" className="size-[10px]" />
-              </div>
-              <span className="text-[12px] font-medium text-[#e9ecf2] tracking-[-0.18px] leading-[18px]">
-                이동규 학생
-              </span>
-            </div>
-            <span className="text-[12px] font-medium text-[#a9b1c1] tracking-[-0.18px] leading-[18px]">
-              2026. 02. 09
-            </span>
-          </div>
-          {/* PDF attachment */}
-          <div className="bg-[#0f1219] border border-[#1b1f2a] rounded-[16px] p-[16px] flex items-center gap-[8px]">
-            <div className="size-[40px] rounded-[8px] flex items-center justify-center shrink-0"
-              style={{ background: "linear-gradient(90deg, #3d82f5 0%, #0360ef 100%)" }}>
-              <span className="text-[12px] font-medium text-[#e9ecf2] text-center leading-[18px]">PDF</span>
-            </div>
-            <div className="flex-1 min-w-0">
-              <p className="text-[14px] font-medium text-[#dcdddf] tracking-[-0.21px] leading-[21px] truncate">
-                거듭제곱근 기초 연산 및 개념 확인 문제.pdf
-              </p>
-              <p className="text-[12px] font-medium text-[#5e677a] tracking-[-0.18px] leading-[18px]">12MB</p>
-            </div>
-            <img src="/icons/features/download.svg" alt="download" className="size-[24px] shrink-0" />
-          </div>
-          <div className="flex justify-end">
-            <span className="text-[12px] font-medium text-[#a9b1c1] leading-[18px]">답글달기</span>
-          </div>
-        </div>
-
-        {/* AI reply */}
-        <div className="flex gap-[8px] items-start">
-          <img src="/icons/features/reply-arrow.svg" alt="" className="size-[16px] mt-[1px] shrink-0 -scale-x-100" />
-          <div className="flex flex-col gap-[8px] flex-1 min-w-0">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-[4px]">
-                <div className="size-[16px] rounded-full overflow-hidden shrink-0">
-                  <img src="/images/features-ai-profile.png" alt="" className="size-full object-cover" />
-                </div>
-                <span className="text-[12px] font-medium text-[#e9ecf2] tracking-[-0.18px] leading-[18px]">
-                  AI 조교
-                </span>
-                <img src="/icons/features/star.svg" alt="" className="size-[12px]" />
-              </div>
-              <span className="text-[12px] font-medium text-[#a9b1c1] tracking-[-0.18px] leading-[18px]">
-                2026. 02. 09
-              </span>
-            </div>
-            <p className="text-[14px] font-medium text-[#e9ecf2] tracking-[-0.21px] leading-[21px]">
-              &quot;과제 하느라 고생 많았습니다! 전체적으로 연산 규칙은 잘 적용하고 있는데, 1번 서술형 문제에서 작은 실수가 있었네요. 😉<br /><br />
-              앞서 강의에서 강조했던 핵심 개념이니, 헷갈린다면 해당 파트의 영상을 다시 한번 가볍게 복습하고 넘어가기를 추천합니다.<br /><br />
-              충분히 잘하고 있으니 조금만 더 힘내요!&quot;
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* Input */}
-      <div className="h-[52px] bg-[#0b0e14] border border-[#1b1f2a] rounded-[16px] flex items-center justify-between px-[16px]">
-        <span className="text-[14px] font-medium text-[#5e677a] tracking-[-0.21px] leading-[21px]">
-          질문답변을 작성해주세요.
-        </span>
-        <div className="size-[32px] rounded-full bg-[#5e677a] flex items-center justify-center shrink-0">
-          <img src="/icons/features/arrow-up.svg" alt="send" className="size-[16px]" />
-        </div>
-      </div>
-    </div>
-  );
-}
-
-// Feature 4: Payment UI mock (full image)
-function PaymentMock() {
-  return (
-    <div className="relative w-full h-full overflow-hidden rounded-[16px]">
-      <img
-        src="/images/features-payment.png"
-        alt="결제 방법"
-        className="absolute inset-0 w-full h-full object-cover object-top"
-      />
-    </div>
-  );
-}
 
 const BADGE_SHAPE = "M0.77735 27.4818C0.445073 27.7033 4.64336e-07 27.4651 4.39789e-07 27.0657L-1.19318e-06 0.500004C-1.21016e-06 0.223862 0.223856 3.80491e-06 0.499999 3.79284e-06L27.5 2.61263e-06C27.7761 2.60056e-06 28 0.22386 28 0.500003L28 27.0657C28 27.4651 27.5549 27.7033 27.2226 27.4818L24.7773 25.8516C24.6094 25.7396 24.3906 25.7396 24.2226 25.8516L21.2773 27.8151C21.1094 27.9271 20.8906 27.9271 20.7226 27.8151L17.7773 25.8516C17.6094 25.7396 17.3906 25.7396 17.2226 25.8516L14.2773 27.8151C14.1094 27.9271 13.8906 27.9271 13.7226 27.8151L10.7773 25.8516C10.6094 25.7396 10.3906 25.7396 10.2226 25.8516L7.27735 27.8151C7.1094 27.9271 6.8906 27.9271 6.72265 27.8151L3.77735 25.8516C3.6094 25.7396 3.3906 25.7396 3.22265 25.8516L0.77735 27.4818Z";
 
@@ -399,18 +134,29 @@ export default function FeaturesSection() {
             <div className="flex flex-col gap-[52px] flex-1 min-w-0">
               {features.map((feature, index) => (
                 <div key={index} className="flex gap-10 items-center justify-center w-full">
-                  {/* Mock UI card */}
+                  {/* PC 이미지 카드 */}
                   <div className="relative flex-1 min-w-0 max-w-[540px]">
-                    <div className={`w-full bg-[#0b0e14] border-[8px] border-black rounded-3xl overflow-hidden p-5 flex flex-col ${
-                      feature.mock === "kakao" || feature.mock === "payment"
-                        ? "aspect-[540/600]"
-                        : "aspect-[540/696]"
-                    }`}>
-                      {feature.mock === "video" && <VideoMock />}
-                      {feature.mock === "kakao" && <KakaoMock />}
-                      {feature.mock === "ai" && <AIMock />}
-                      {feature.mock === "payment" && <PaymentMock />}
-                    </div>
+                    {feature.pcImg.endsWith(".gif") ? (
+                      /* GIF: 흰 배경 + 폰 목업 위치 */
+                      <div className="w-full aspect-[540/600] border-[8px] border-black rounded-3xl overflow-hidden bg-white relative">
+                        <img
+                          src={`/images/${feature.pcImg}`}
+                          alt={feature.title.join(" ")}
+                          className="absolute max-w-none"
+                          style={{ left: "9.45%", top: "-0.69%", width: "81.1%", height: "102.19%" }}
+                        />
+                      </div>
+                    ) : (
+                      <div className="w-full border-[8px] border-black rounded-3xl overflow-hidden">
+                        {feature.pcImg && (
+                          <img
+                            src={`/images/${feature.pcImg}`}
+                            alt={feature.title.join(" ")}
+                            className="w-full h-auto block"
+                          />
+                        )}
+                      </div>
+                    )}
                     {/* Border overlay */}
                     <div className="absolute inset-0 rounded-3xl border-2 border-[#a9b6c2] pointer-events-none" />
                   </div>
