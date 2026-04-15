@@ -113,7 +113,9 @@ function PremiumCard({ mobile }: { mobile?: boolean }) {
                   <span className="text-[#f98585] text-[20px] font-bold leading-[30px] tracking-[-0.3px] whitespace-nowrap">
                     25%
                   </span>
-                  <ArrowDownRed />
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M19 13.3333L12 20M12 20L5 13.3333M12 20L12 4" stroke="#F98585" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
                 </div>
               </div>
               <p className="text-[#e9ecf2] text-[14px] font-normal leading-[1.5] tracking-[-0.28px] w-full">

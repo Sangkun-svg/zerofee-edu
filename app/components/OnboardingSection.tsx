@@ -76,7 +76,7 @@ export default function OnboardingSection() {
       </div>
 
       {/* 데스크탑: 가로 */}
-      <div className="hidden md:flex items-center justify-center gap-[28px] w-full max-w-[1360px] px-10 flex-wrap">
+      <div className="hidden md:flex items-center justify-center gap-[28px] w-full max-w-[1440px] px-10 flex-wrap">
         {steps.map((step, i) => (
           <Fragment key={step.number}>
             <StepCircle step={step} />

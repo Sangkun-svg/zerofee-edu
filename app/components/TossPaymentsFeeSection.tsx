@@ -8,26 +8,17 @@ type FeeRow = {
   savings: string;
 };
 
-const feeRowsDesktop: FeeRow[] = [
-  { label: "카드결제", normal: "3.4%",      affiliate: "2.9%",  savings: "0.5%" },
-  { label: "간편결제", normal: "3.4%",      affiliate: "2.9%",  savings: "0.5%" },
-  { label: "가상계좌", normal: "400원",      affiliate: "270원", savings: "130원" },
-  { label: "해외결제", normal: "5.0%",      affiliate: "4.6%",  savings: "0.4%" },
-];
-
-const feeRowsMobile: FeeRow[] = [
+const feeRows: FeeRow[] = [
   { label: "가입비",   normal: "220,000원", affiliate: "면제",  savings: "100%" },
   { label: "연회비",   normal: "110,000원", affiliate: "면제",  savings: "100%" },
   { label: "카드결제", normal: "3.4%",      affiliate: "2.9%",  savings: "0.5%" },
   { label: "간편결제", normal: "3.4%",      affiliate: "2.9%",  savings: "0.5%" },
-  { label: "가상계좌", normal: "400원",      affiliate: "270원", savings: "130원" },
-  { label: "해외결제", normal: "5.0%",      affiliate: "4.6%",  savings: "0.4%" },
 ];
 
 function ArrowDown() {
   return (
     <svg width="8" height="7" viewBox="0 0 8 7" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <path d="M4 6.5L0.535898 0.75L7.4641 0.75L4 6.5Z" fill="#3d82f5" />
+      <path d="M4 6.5L0.535898 0.75L7.4641 0.75L4 6.5Z" fill="#3D82F5" />
     </svg>
   );
 }
@@ -41,13 +32,13 @@ function FeeTable({ rows, mobile }: { rows: FeeRow[]; mobile?: boolean }) {
       {/* 헤더 행 */}
       <div className={`bg-[#0f1219] flex items-center rounded-[16px] ${mobile ? "h-[64px]" : "h-[80px]"}`}>
         <div className="flex h-full items-center justify-center flex-1">
-          <span className={`text-[#a9b1c1] font-bold whitespace-nowrap tracking-[0.18px] ${textSize}`}>
-            {mobile ? "항목" : "결제방법"}
+          <span className={`text-[#F8FAFF] font-bold whitespace-nowrap tracking-[0.18px] ${textSize}`}>
+            항목
           </span>
         </div>
         <div className="h-8 w-px bg-[#2a2f3a]" />
         <div className="flex h-full items-center justify-center flex-1">
-          <span className={`text-[#a9b1c1] font-bold whitespace-nowrap tracking-[0.18px] ${textSize}`}>
+          <span className={`text-[#F8FAFF] font-bold whitespace-nowrap tracking-[0.18px] ${textSize}`}>
             일반계약
           </span>
         </div>
@@ -65,12 +56,12 @@ function FeeTable({ rows, mobile }: { rows: FeeRow[]; mobile?: boolean }) {
           <div key={row.label}>
             <div className="flex items-center w-full">
               <div className={`flex ${cellH} items-center justify-center flex-1`}>
-                <span className={`text-[#a9b1c1] font-medium whitespace-nowrap tracking-[-0.18px] ${textSize}`}>
+                <span className={`text-[#F8FAFF] font-medium whitespace-nowrap tracking-[-0.18px] ${textSize}`}>
                   {row.label}
                 </span>
               </div>
               <div className={`flex ${cellH} items-center justify-center flex-1`}>
-                <span className={`text-[#a9b1c1] font-medium whitespace-nowrap tracking-[-0.18px] ${textSize}`}>
+                <span className={`text-[#F8FAFF] font-medium whitespace-nowrap tracking-[-0.18px] ${textSize}`}>
                   {row.normal}
                 </span>
               </div>
@@ -123,7 +114,7 @@ export default function TossPaymentsFeeSection() {
             </p>
           </div>
         </div>
-        <FeeTable rows={feeRowsMobile} mobile />
+        <FeeTable rows={feeRows} mobile />
       </div>
 
       {/* 데스크탑 */}
@@ -151,7 +142,7 @@ export default function TossPaymentsFeeSection() {
             </p>
           </div>
         </div>
-        <FeeTable rows={feeRowsDesktop} />
+        <FeeTable rows={feeRows} />
       </div>
     </section>
   );
