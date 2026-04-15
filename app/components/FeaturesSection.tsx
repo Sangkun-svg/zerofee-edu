@@ -123,7 +123,7 @@ export default function FeaturesSection() {
         <div className="max-w-[1440px] mx-auto px-10">
           <div className="flex gap-10 items-start">
             {/* Left sticky heading */}
-            <div className="sticky top-[224px] w-[370px] shrink-0">
+            <div className="sticky top-[224px] min-w-[300px] max-w-[370px]">
               <h2 className="text-[#fefefe] text-[48px] font-black leading-[72px] tracking-[-1.2px]">
                 가장 쉽고
                 <br />
@@ -134,9 +134,9 @@ export default function FeaturesSection() {
             {/* Right scrollable feature rows */}
             <div className="flex flex-col gap-[52px] flex-1 min-w-0">
               {features.map((feature, index) => (
-                <div key={index} className="flex gap-10 items-center justify-center w-full">
+                <div key={index} className="flex gap-10 items-center justify-start w-full">
                   {/* PC 이미지 카드 */}
-                  <div className="relative flex-1 min-w-0 max-w-[540px]">
+                  <div className="relative flex-[540] min-w-0 max-w-[540px]">
                     {feature.pcImg.endsWith(".gif") ? (
                       /* GIF: 흰 배경 + 폰 목업 위치 */
                       <div className="w-full aspect-[540/600] border-[8px] border-black rounded-3xl overflow-hidden bg-white relative">
@@ -165,7 +165,7 @@ export default function FeaturesSection() {
                   </div>
 
                   {/* Feature description */}
-                  <div className="w-[370px] shrink-0 flex flex-col gap-5">
+                  <div className="flex-[370] min-w-0 flex flex-col gap-5">
                     <div className="flex flex-col gap-2">
                       <FeatureBadge number={feature.badge} />
                       <h3 className="text-[#fefefe] text-[28px] font-bold leading-[36px] tracking-[-0.42px]">

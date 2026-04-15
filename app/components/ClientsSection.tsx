@@ -171,16 +171,16 @@ export default function ClientsSection() {
 
       {/* 데스크탑: 5+4 2줄 */}
       <div className="hidden md:flex flex-col items-center gap-5 w-full max-w-[1360px] px-10">
-        <div className="flex justify-center gap-5">
+        <div className="flex justify-center gap-5 w-full">
           {clients.slice(0, 5).map((client) => (
-            <div key={client.name} className="w-[180px] shrink-0 h-[60px] flex items-center justify-center">
+            <div key={client.name} className="flex-1 max-w-[180px] h-[60px] flex items-center justify-center">
               {client.logo}
             </div>
           ))}
         </div>
-        <div className="flex justify-center gap-5">
+        <div className="flex justify-center gap-5 w-full">
           {clients.slice(5).map((client) => (
-            <div key={client.name} className="w-[180px] shrink-0 h-[60px] flex items-center justify-center">
+            <div key={client.name} className="flex-1 max-w-[180px] h-[60px] flex items-center justify-center">
               {client.logo}
             </div>
           ))}
