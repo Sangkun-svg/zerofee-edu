@@ -9,10 +9,9 @@ function scrollTo(id: string) {
 export default function Header() {
   return (
     <header className="fixed top-5 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-40px)] md:w-[calc(100%-80px)] max-w-[1360px] h-[64px] md:h-[80px]">
-      <div className="backdrop-blur-[10px] bg-[rgba(255,255,255,0.04)] border border-[rgba(255,255,255,0.04)] flex items-center justify-between px-6 md:px-10 rounded-[40px] h-full">
-        {/* 왼쪽: 로고 + 가격안내 */}
+      <div className="backdrop-blur-[10px] bg-[rgba(255,255,255,0.04)] border border-[rgba(255,255,255,0.04)] flex items-center justify-between px-6 md:pl-10 md:pr-5 rounded-[40px] h-full">
         <div className="flex items-center gap-8">
-          <Image src="/logo.svg" alt="zerofee edu" width={200} height={32} priority />
+          <Image src="/logo.svg" alt="zerofee edu" width={187} height={32} priority />
           <button
             onClick={() => scrollTo("pricing")}
             className="hidden md:block text-[#fefefe] text-[16px] font-medium leading-6 tracking-[-0.24px] whitespace-nowrap hover:opacity-80 transition-opacity"

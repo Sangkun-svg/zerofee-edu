@@ -49,10 +49,18 @@ const faqs = [
   },
 ];
 
+function Divider({ highlight }: { highlight?: boolean }) {
+  return (
+    <div className="w-full h-px" style={{
+      background: "linear-gradient(90deg, rgba(94,103,122,0) 0%, rgba(94,103,122,0.4) 49.52%, rgba(94,103,122,0) 100%)"}} 
+    />
+  );
+}
+
 export default function FaqSection() {
   return (
-    <section className="flex flex-col items-center gap-8 md:gap-[52px] py-[104px] md:py-[144px] px-5 md:px-10 w-full">
-      <h2 className="text-[#fefefe] text-[28px] font-bold leading-[36px] tracking-[-0.42px] text-center">
+    <section className="flex flex-col items-center gap-8 md:gap-[52px] py-[104px] md:py-[144px] px-5 md:px-10 w-full" style={{ backgroundImage: "url('/images/faq-img-2.png')", backgroundSize: "cover", backgroundPosition: "center" }}>
+      <h2 className="text-[#F8FAFF] text-[28px] font-bold leading-[36px] tracking-[-0.42px] text-center">
         자주 묻는 질문
       </h2>
 
@@ -62,11 +70,11 @@ export default function FaqSection() {
             key={i}
             className="flex flex-col gap-4 p-4 rounded-2xl border border-[var(--gray-100)] bg-[var(--gray-50)]"
           >
-            <p className="text-[#fefefe] text-[14px] font-bold leading-[21px]">
+            <p className="text-[#E9ECF2] text-[14px] font-bold leading-[21px]">
               {faq.question}
             </p>
-            <hr className="border-t border-[var(--gray-100)] m-0" />
-            <div className="text-[var(--gray-600)] text-[14px] font-medium leading-[21px] tracking-[-0.21px]">
+            <Divider />
+            <div className="text-[#E9ECF2] text-[14px] font-medium leading-[21px] tracking-[-0.21px]">
               {faq.answer}
             </div>
           </div>

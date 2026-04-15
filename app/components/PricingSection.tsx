@@ -32,13 +32,10 @@ function CheckIcon() {
   );
 }
 
-function ArrowDownRed() {
+function Divider({ highlight }: { highlight?: boolean }) {
   return (
-    <img
-      src="/icons/arrow-down-red.svg"
-      alt=""
-      className="size-6 shrink-0"
-      aria-hidden="true"
+    <div className="w-full h-px" style={{
+      background: "linear-gradient(90deg, rgba(94,103,122,0) 0%, rgba(94,103,122,0.4) 49.52%, rgba(94,103,122,0) 100%)"}} 
     />
   );
 }
@@ -125,7 +122,7 @@ function PremiumCard({ mobile }: { mobile?: boolean }) {
             <CtaButton label="도입 상담 신청하기" />
           </div>
         </div>
-        <div className="h-px w-full bg-[#2a2f3a]" />
+        <Divider />
         <div className="flex flex-col gap-2 items-start">
           {premiumFeatures.map((f) => (
             <FeatureItem key={f} text={f} />
@@ -162,7 +159,7 @@ function EnterpriseCard({ mobile }: { mobile?: boolean }) {
           <CtaButton label="컨설팅 문의하기" />
         </div>
       </div>
-      <div className="h-px w-full bg-[#2a2f3a]" />
+      <Divider />
       <div className="flex flex-col gap-4 items-start">
         <span className="text-[#f8faff] text-[14px] font-medium leading-[21px] tracking-[-0.21px] whitespace-nowrap">
           Premium Plan의 모든 기능 +
@@ -179,9 +176,9 @@ function EnterpriseCard({ mobile }: { mobile?: boolean }) {
 
 export default function PricingSection() {
   return (
-    <section className="w-full bg-[#0b0e14] py-[104px] md:py-36">
+    <section className="w-full bg-[#0b0e14] py-[104px] sm:py-36">
       {/* 모바일 */}
-      <div className="flex md:hidden flex-col gap-8 items-center px-5">
+      <div className="flex sm:hidden flex-col gap-8 items-center px-5">
         <div className="flex flex-col gap-2 items-center text-center w-full">
           <h2 className="text-[#f8faff] text-[28px] font-bold leading-[36px] tracking-[-0.42px] w-full">
             운영을 최적화 할 플랜을
@@ -201,7 +198,7 @@ export default function PricingSection() {
       </div>
 
       {/* 데스크탑 */}
-      <div className="hidden md:flex flex-col gap-[52px] items-center w-full">
+      <div className="hidden sm:flex flex-col gap-[52px] items-center w-full">
         <div className="flex flex-col gap-2 items-center text-center w-[468px]">
           <h2 className="text-[#f8faff] text-[28px] font-bold leading-[36px] tracking-[-0.42px] w-full">
             운영을 최적화 할 플랜을 선택해보세요

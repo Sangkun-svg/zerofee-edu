@@ -142,7 +142,7 @@ const clients = [
 
 export default function ClientsSection() {
   return (
-    <section className="w-full py-[104px] md:py-36 flex flex-col items-center gap-8 md:gap-[52px] md:px-0">
+    <section className="w-full py-[104px] sm:py-36 flex flex-col items-center gap-8 sm:gap-[52px] sm:px-0">
       <h2 className="text-[#fefefe] text-[28px] font-bold leading-[36px] tracking-[-0.42px] text-center">
         많은 학원과 강사님들이
         <br />
@@ -150,7 +150,7 @@ export default function ClientsSection() {
       </h2>
 
       {/* 모바일: 3줄 마퀴 */}
-      <div className="md:hidden flex flex-col gap-5 w-full overflow-hidden">
+      <div className="sm:hidden flex flex-col gap-5 w-full overflow-hidden">
         {[
           clients.slice(0, 3),
           clients.slice(3, 6),
@@ -170,7 +170,7 @@ export default function ClientsSection() {
       </div>
 
       {/* 데스크탑: 5+4 2줄 */}
-      <div className="hidden md:flex flex-col items-center gap-5 w-full max-w-[1360px] px-10">
+      <div className="hidden sm:flex flex-col items-center gap-5 w-full max-w-[1360px] px-10">
         <div className="flex justify-center gap-5 w-full">
           {clients.slice(0, 5).map((client) => (
             <div key={client.name} className="flex-1 max-w-[180px] h-[60px] flex items-center justify-center">

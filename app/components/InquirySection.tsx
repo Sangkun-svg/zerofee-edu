@@ -68,7 +68,7 @@ export default function InquirySection() {
   ];
 
   const contactOptionsDesktop: { value: ContactMethod; label: string }[] = [
-    { value: "kakao", label: "카카오톡" },
+    { value: "kakao", label: "카카오톡 / 문자" },
     { value: "email", label: "이메일" },
     { value: "phone", label: "전화" },
   ];
@@ -82,17 +82,7 @@ export default function InquirySection() {
       {status === "loading" ? (
         <span className="text-[#f8faff] text-[14px] font-bold leading-[21px] whitespace-nowrap">신청 중...</span>
       ) : (
-        <>
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M8 2L1 5.5L8 9L15 5.5L8 2Z" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            <path d="M4 7.5V11C4 11 5.5 13 8 13C10.5 13 12 11 12 11V7.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            <path d="M15 5.5V9" stroke="white" strokeWidth="1.5" strokeLinecap="round"/>
-          </svg>
-          <span className="text-[#f8faff] text-[14px] font-bold leading-[21px] whitespace-nowrap">도입 상담 신청하기</span>
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M6 3L11 8L6 13" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-        </>
+        <span className="text-[#f8faff] text-[14px] font-bold leading-[21px] whitespace-nowrap">도입 상담 신청하기</span>
       )}
     </button>
   );
@@ -103,7 +93,7 @@ export default function InquirySection() {
         {/* 관심 플랜 */}
         <div className="flex flex-col gap-2 items-start w-full">
           <p className={labelCls}>관심 플랜*</p>
-          <div className={`flex items-start w-full ${vertical ? "flex-col gap-3" : "gap-5"}`}>
+          <div className={`flex items-start w-full ${vertical ? "flex-col gap-3" : "gap-10"}`}>
             {planOptions.map(({ value, label }) => (
               <button key={value} type="button" onClick={() => setPlan(value)} className="flex gap-2 items-center">
                 <RadioCircle selected={plan === value} />
@@ -142,7 +132,7 @@ export default function InquirySection() {
           <p className={labelCls}>연락 방법*</p>
           <div className={`flex items-start w-full ${vertical ? "flex-col gap-3" : "gap-5"}`}>
             {(vertical ? contactOptionsMobile : contactOptionsDesktop).map(({ value, label }) => (
-              <button key={value} type="button" onClick={() => setContactMethod(value)} className="flex gap-2 items-center">
+              <button key={value} type="button" onClick={() => setContactMethod(value)} className="flex gap-2 items-center min-w-[137px]">
                 <RadioCircle selected={contactMethod === value} />
                 <span className={labelCls}>{label}</span>
               </button>
@@ -157,7 +147,7 @@ export default function InquirySection() {
             value={comments}
             onChange={(e) => setComments(e.target.value)}
             placeholder="궁금하신 사항을 작성해주시면 해당 내용을 중심으로 상담 도와드리겠습니다."
-            className="bg-[#0b0e14] border border-[#1b1f2a] h-[160px] w-full px-4 py-[14px] rounded-2xl text-[#f8faff] text-[14px] font-medium leading-[21px] tracking-[-0.21px] placeholder-[#a9b1c1] outline-none focus:border-[#3d82f5] transition-colors resize-none"
+            className="bg-[#0b0e14] border border-[#1b1f2a] h-[160px] w-full px-4 py-[14px] rounded-2xl text-[#f8faff] text-[14px] font-medium leading-[21px] tracking-[-0.21px] placeholder-[#5E677A)] outline-none focus:border-[#3d82f5] transition-colors resize-none"
           />
         </div>
 

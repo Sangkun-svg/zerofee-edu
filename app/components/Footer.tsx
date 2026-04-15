@@ -1,6 +1,6 @@
 function TossBadge() {
   return (
-    <div className="flex items-center gap-1 h-10 px-4 bg-[#0f1219] border border-[#1b1f2a] rounded-[24px] shrink-0">
+    <div className="flex items-center gap-1 h-10 px-4 bg-[#0f1219] border border-[#1b1f2a] rounded-[24px] shrink-0 w-fit">
       <div className="size-5 overflow-hidden relative shrink-0">
         <img src="/images/footer-toss.png" alt="" className="absolute size-[121.71%] -left-[10.85%] -top-[9.91%] max-w-none" />
       </div>
@@ -13,7 +13,7 @@ function TossBadge() {
 
 function SgicBadge() {
   return (
-    <div className="flex items-center gap-1 h-10 px-4 bg-[#0f1219] border border-[#1b1f2a] rounded-[24px] shrink-0">
+    <div className="flex items-center gap-1 h-10 px-4 bg-[#0f1219] border border-[#1b1f2a] rounded-[24px] shrink-0 w-fit">
       <div className="size-5 overflow-hidden relative shrink-0">
         <img src="/images/footer-sgic.png" alt="" className="absolute h-[136.67%] -left-[20.07%] -top-[22.12%] w-[533.33%] max-w-none" />
       </div>
@@ -50,10 +50,7 @@ export default function Footer() {
               제로피는 통신판매 중개자이며, 통신판매의 당사자가 아닙니다.
             </p>
           </div>
-          <div className="flex gap-1 flex-wrap">
-            <TossBadge />
-            <SgicBadge />
-          </div>
+
         </div>
 
         {/* 데스크탑: 로고+면책 왼쪽, 뱃지 오른쪽 */}
@@ -90,6 +87,12 @@ export default function Footer() {
           <p>통신판매업신고번호 : 고양-0000-0000</p>
           <p>메일 : contact@zerofee.kr</p>
           <p className="font-bold">Copyright ⓒ 2026 zerofee. All rights reserved.</p>
+        </div>
+
+        {/* 모바일에서만 보이게 */}
+        <div className="md:hidden flex flex-col gap-1 flex-wrap">
+          <TossBadge />
+          <SgicBadge />
         </div>
 
       </div>

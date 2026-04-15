@@ -39,8 +39,7 @@ const features = [
       "일반 PG사 계약보다 최대 0.5% 낮은 수수료로",
       "결제 모듈을 제공합니다.",
     ],
-    pcImg: "features-payment.gif",
-    // pcImg: "feature-pc-4.png",
+    pcImg: "feature-pc-4.png",
     mobileImg: "/images/feature-mobile-2.png",
   },
 ];
@@ -86,7 +85,7 @@ export default function FeaturesSection() {
               {/* 이미지 */}
               <div className="w-full max-w-[600px] mx-auto rounded-[16px] overflow-hidden">
                 <img
-                  src={feature.mobileImg}
+                  src={`/images/${feature.pcImg}`}
                   alt={feature.title.join(" ")}
                   className="w-full h-auto block"
                 />
@@ -139,7 +138,7 @@ export default function FeaturesSection() {
                   <div className="relative flex-[540] min-w-0 max-w-[540px]">
                     {feature.pcImg.endsWith(".gif") ? (
                       /* GIF: 흰 배경 + 폰 목업 위치 */
-                      <div className="w-full aspect-[540/600] border-[8px] border-black rounded-3xl overflow-hidden bg-white relative">
+                      <div className="w-full aspect-[540/600] border-[8px] border-black overflow-hidden bg-white relative">
                         <img
                           src={`/images/${feature.pcImg}`}
                           alt={feature.title.join(" ")}
@@ -148,7 +147,7 @@ export default function FeaturesSection() {
                         />
                       </div>
                     ) : (
-                      <div className="w-full border-[8px] border-black rounded-3xl overflow-hidden">
+                      <div className="w-full overflow-hidden">
                         {feature.pcImg && (
                           <img
                             src={`/images/${feature.pcImg}`}

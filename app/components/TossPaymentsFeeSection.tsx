@@ -1,12 +1,29 @@
 const imgTossIcon = "/images/toss-icon.png";
 const imgTossMask = "/images/toss-mask.png";
 
+function Divider({ highlight }: { highlight?: boolean }) {
+  return (
+    <div className="w-full h-px my-2" style={{
+      background: "linear-gradient(90deg, rgba(94,103,122,0) 0%, rgba(94,103,122,0.4) 49.52%, rgba(94,103,122,0) 100%)"}} 
+    />
+  );
+}
+
+function ColDivider() {
+  return (
+    <div className="w-px h-8 shrink-0" style={{
+      background: "linear-gradient(180deg, rgba(94,103,122,0) 0%, #5E677A 49.52%, rgba(94,103,122,0) 100%)"
+    }} />
+  );
+}
+
 type FeeRow = {
   label: string;
   normal: string;
   affiliate: string;
   savings: string;
 };
+
 
 const feeRows: FeeRow[] = [
   { label: "가입비",   normal: "220,000원", affiliate: "면제",  savings: "100%" },
@@ -23,6 +40,7 @@ function ArrowDown() {
   );
 }
 
+
 function FeeTable({ rows, mobile }: { rows: FeeRow[]; mobile?: boolean }) {
   const textSize = mobile ? "text-[12px] leading-[18px]" : "text-[14px] leading-[21px]";
   const cellH = mobile ? "h-[52px]" : "h-[52px]";
@@ -30,19 +48,19 @@ function FeeTable({ rows, mobile }: { rows: FeeRow[]; mobile?: boolean }) {
   return (
     <div className={`flex flex-col gap-5 ${mobile ? "w-full" : "w-[900px]"}`}>
       {/* 헤더 행 */}
-      <div className={`bg-[#0f1219] flex items-center rounded-[16px] ${mobile ? "h-[64px]" : "h-[80px]"}`}>
+      <div className={`bg-[#0f1219] flex items-center rounded-[16px] h-[64px]`}>
         <div className="flex h-full items-center justify-center flex-1">
           <span className={`text-[#F8FAFF] font-bold whitespace-nowrap tracking-[0.18px] ${textSize}`}>
             항목
           </span>
         </div>
-        <div className="h-8 w-px bg-[#2a2f3a]" />
+        <ColDivider />
         <div className="flex h-full items-center justify-center flex-1">
           <span className={`text-[#F8FAFF] font-bold whitespace-nowrap tracking-[0.18px] ${textSize}`}>
             일반계약
           </span>
         </div>
-        <div className="h-8 w-px bg-[#2a2f3a]" />
+        <ColDivider />
         <div className="flex h-full items-center justify-center flex-1 rounded-r-[16px]">
           <span className={`text-[#f8faff] font-bold whitespace-nowrap tracking-[0.18px] ${textSize}`}>
             제휴계약
@@ -53,7 +71,7 @@ function FeeTable({ rows, mobile }: { rows: FeeRow[]; mobile?: boolean }) {
       {/* 데이터 행 */}
       <div className="flex flex-col">
         {rows.map((row, i) => (
-          <div key={row.label}>
+          <>
             <div className="flex items-center w-full">
               <div className={`flex ${cellH} items-center justify-center flex-1`}>
                 <span className={`text-[#F8FAFF] font-medium whitespace-nowrap tracking-[-0.18px] ${textSize}`}>
@@ -77,8 +95,8 @@ function FeeTable({ rows, mobile }: { rows: FeeRow[]; mobile?: boolean }) {
                 </div>
               </div>
             </div>
-            {i < rows.length - 1 && <div className="h-px w-full bg-[#1b1f2a]" />}
-          </div>
+            {i < rows.length - 1 && <Divider/>}
+          </>
         ))}
       </div>
     </div>
