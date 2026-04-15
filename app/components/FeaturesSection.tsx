@@ -39,7 +39,8 @@ const features = [
       "일반 PG사 계약보다 최대 0.5% 낮은 수수료로",
       "결제 모듈을 제공합니다.",
     ],
-    pcImg: "feature-pc-4.png",
+    pcImg: "features-payment.gif",
+    // pcImg: "feature-pc-4.png",
     mobileImg: "/images/feature-mobile-2.png",
   },
 ];
@@ -158,7 +159,9 @@ export default function FeaturesSection() {
                       </div>
                     )}
                     {/* Border overlay */}
-                    <div className="absolute inset-0 rounded-3xl border-2 border-[#a9b6c2] pointer-events-none" />
+                    {feature.pcImg.endsWith(".gif") && (
+                      <div className="absolute inset-0 rounded-3xl border-2 border-[#a9b6c2] pointer-events-none" />
+                    )}
                   </div>
 
                   {/* Feature description */}
