@@ -14,9 +14,7 @@ function CheckIcon() {
 function Divider({ highlight }: { highlight?: boolean }) {
   return (
     <div className="w-full h-px my-2" style={{
-      background: highlight 
-        ? "linear-gradient(90deg, rgba(3, 96, 239, 0) 0%, rgba(3, 96, 239, 0.6) 49.52%, rgba(3, 96, 239, 0) 100%)"
-        : "linear-gradient(90deg, rgba(94,103,122,0) 0%, rgba(94,103,122,0.4) 49.52%, rgba(94,103,122,0) 100%)"}} 
+      background: "linear-gradient(90deg, rgba(94,103,122,0) 0%, rgba(94,103,122,0.4) 49.52%, rgba(94,103,122,0) 100%)"}} 
     />
   );
 }

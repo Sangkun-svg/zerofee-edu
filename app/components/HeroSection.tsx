@@ -4,6 +4,7 @@ const imgBgGlow = "/images/hero-bg-glow.png";
 const imgDashboard = "/images/banner-pc-img.png";
 const imgDashboardMobile = "/images/banner-mob.png";
 const imgMessageIcon = "/icons/message.svg";
+const imgEdit = "/images/edit-01.png";
 
 export default function HeroSection() {
   return (
@@ -48,9 +49,7 @@ export default function HeroSection() {
               onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
               className="btn-gradient btn-gradient-blue flex items-center gap-1 h-[52px] px-6 rounded-[32px] border border-white hover:opacity-90 transition-opacity w-[172px]"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                <path d="M8.3576 12.8287L8.85245 12.2741C9.45962 11.5936 10.549 11.682 11.0384 12.4516C11.4943 13.1684 12.4849 13.3043 13.117 12.7368L14.014 11.9314M1.98584 12.98L4.8965 12.3936C5.05101 12.3624 5.19289 12.2863 5.30432 12.1749L11.8201 5.6555C12.1325 5.34293 12.1323 4.83627 11.8196 4.52397L10.4393 3.14525C10.1268 2.83307 9.62041 2.83328 9.30814 3.14572L2.79168 9.66576C2.68047 9.77703 2.60454 9.91862 2.57338 10.0728L1.98584 12.98Z" stroke="#F8FAFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
+              <img alt="" src={imgEdit} className="size-4" />
               <span className="text-[#f8faff] text-[14px] font-bold leading-[21px] whitespace-nowrap">
                 도입 상담 신청하기
               </span>
@@ -59,9 +58,6 @@ export default function HeroSection() {
             <button
               onClick={() => window.open("https://pf.kakao.com/_EgdlX", "_blank", "noopener,noreferrer")}
               className="btn-gradient btn-gradient-yellow flex items-center gap-1 h-[52px] px-6 rounded-[32px] border border-white hover:opacity-90 transition-opacity w-[172px]"
-              style={{
-                background: "linear-gradient(105.638deg, #FAE100 0%, #FAE100 49.519%, #FAC800 100%)",
-              }}
             >
               <img alt="" src={imgMessageIcon} className="size-4" />
               <span className="text-[#3b1d1d] text-[14px] font-bold leading-[21px] whitespace-nowrap">

@@ -26,8 +26,6 @@ export default function Index() {
       <InquirySection />
       <FaqSection />
       <Footer />
-      {/* 
-       */}
     </main>
   );
 }
