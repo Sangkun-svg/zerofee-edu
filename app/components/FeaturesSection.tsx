@@ -7,7 +7,7 @@ const features = [
       "바로 열람할 수 있으며, 캡처 및 녹화 방지 기술을 적용해",
       "콘텐츠 유출을 완벽하게 차단합니다.",
     ],
-    mock: "product",
+    mock: "video",
     mobileImg: "/images/feature-mobile-1.png",
   },
   {
@@ -17,7 +17,7 @@ const features = [
       "결제 완료 알림, 학습 리포트 등",
       "필요한 내용은 모두 카카오 알림톡으로 자동 발송됩니다.",
     ],
-    mock: "notion",
+    mock: "kakao",
     mobileImg: "/images/feature-mobile-2.png",
   },
   {
@@ -28,7 +28,7 @@ const features = [
       "선생님의 부담은 절반으로 줄일 수 있습니다.",
       "AI가 완성하는 스마트한 질의응답 시스템을 경험해 보세요.",
     ],
-    mock: "notion2",
+    mock: "ai",
     mobileImg: "/images/feature-mobile-2.png",
   },
   {
@@ -39,107 +39,152 @@ const features = [
       "일반 PG사 계약보다 최대 0.5% 낮은 수수료로",
       "결제 모듈을 제공합니다.",
     ],
-    mock: "notion3",
+    mock: "payment",
     mobileImg: "/images/feature-mobile-2.png",
   },
 ];
 
-function ProductMock() {
+// Feature 1: Video player mock
+function VideoMock() {
   return (
-    <div className="flex flex-col gap-[20px] w-full">
-      {/* 상품 대표이미지 */}
-      <div className="flex flex-col gap-[8px]">
-        <div className="flex flex-col">
-          <span className="text-[14px] font-medium text-[#e9ecf2] tracking-[-0.21px] leading-[21px]">
-            상품 대표이미지
-          </span>
-          <span className="text-[12px] text-[#b0b0b5] tracking-[-0.18px] leading-[18px]">
-            * 1:1 비율의 1080*1080px 사이즈를 권장드려요.
-          </span>
-          <span className="text-[12px] text-[#b0b0b5] tracking-[-0.18px] leading-[18px]">
-            * 최대 4장의 이미지 업로드가 가능하며, 첫번째 이미지가 대표 이미지로 설정돼요.
-          </span>
-        </div>
-        <div className="relative size-[164px] rounded-[16px] overflow-hidden">
-          <img
-            src="/images/features-card1.png"
-            alt="상품 이미지"
-            className="absolute inset-0 w-full h-full object-contain"
-          />
-        </div>
-      </div>
-
-      {/* 상품명 */}
-      <div className="flex flex-col gap-[8px]">
-        <span className="text-[14px] font-medium text-[#e9ecf2] tracking-[-0.21px] leading-[21px]">
-          상품명*
-        </span>
-        <div className="bg-[#0b0e14] border border-[#1b1f2a] h-[52px] flex items-center px-4 rounded-[16px]">
-          <span className="text-[14px] font-medium text-[#f8faff] tracking-[-0.21px] leading-[21px] whitespace-nowrap overflow-hidden text-ellipsis">
-            노션으로 온라인 교실을 운영해볼까요?
-          </span>
-        </div>
-      </div>
-
-      {/* 상품 카테고리 */}
-      <div className="flex flex-col gap-[8px]">
-        <span className="text-[14px] font-medium text-[#e9ecf2] tracking-[-0.21px] leading-[21px]">
-          상품 카테고리
-        </span>
-        <div className="bg-[#1b1f2a] border border-[#1b1f2a] rounded-[16px] p-2">
-          <div className="flex gap-1 h-10 items-center">
-            <div className="flex-1 h-10 flex items-center justify-center bg-[#3d82f5] rounded-[12px]">
-              <span className="text-[14px] font-bold text-[#f8faff] whitespace-nowrap leading-[21px]">
-                디지털 상품
-              </span>
-            </div>
-            <div className="flex-1 h-10 flex items-center justify-center rounded-[12px]">
-              <span className="text-[14px] font-medium text-[#a9b1c1] tracking-[-0.21px] leading-[21px] whitespace-nowrap">
-                링크페이(일반)
-              </span>
-            </div>
-            <div className="flex-1 h-10 flex items-center justify-center rounded-[12px]">
-              <span className="text-[14px] font-medium text-[#a9b1c1] tracking-[-0.21px] leading-[21px] whitespace-nowrap">
-                링크페이(구독)
-              </span>
+    <div className="flex flex-col gap-[32px] w-full">
+      {/* Header */}
+      <div className="flex flex-col gap-[20px]">
+        <div className="flex items-start justify-between gap-[8px]">
+          <div className="flex flex-col gap-[8px] min-w-0">
+            <span className="text-[24px] font-bold text-[#e9ecf2] tracking-[-0.36px] leading-[32px] whitespace-nowrap">
+              지수함수와 로그함수
+            </span>
+            <div className="flex gap-[8px] items-center text-[18px] font-medium text-[#e9ecf2] tracking-[-0.27px] leading-[26px]">
+              <span className="whitespace-nowrap">지수</span>
+              <span>-</span>
+              <span className="whitespace-nowrap">거듭제곱과 거듭제곱근의 뜻과 성질</span>
             </div>
           </div>
-        </div>
-      </div>
-
-      {/* 기본가 */}
-      <div className="flex flex-col gap-[8px]">
-        <span className="text-[14px] font-medium text-[#e9ecf2] tracking-[-0.21px] leading-[21px] whitespace-nowrap">
-          기본가*
-        </span>
-        <div className="bg-[#0b0e14] border border-[#1b1f2a] h-[52px] flex items-center justify-between px-4 rounded-[16px]">
-          <span className="text-[14px] font-medium text-[#f8faff] tracking-[-0.21px] leading-[21px]">49,000</span>
-          <span className="text-[14px] font-medium text-[#f8faff] tracking-[-0.21px] leading-[21px]">원</span>
-        </div>
-      </div>
-
-      {/* 할인 금액 */}
-      <div className="flex flex-col gap-[8px]">
-        <div className="flex flex-col">
-          <span className="text-[14px] font-medium text-[#e9ecf2] tracking-[-0.21px] leading-[21px]">
-            할인 금액
-          </span>
-          <span className="text-[12px] text-[#a9b1c1] tracking-[-0.18px] leading-[18px]">
-            * 할인 할 금액을 입력하면 기본가에서 입력된 금액만큼 차감돼요.
-          </span>
-        </div>
-        <div className="flex gap-2 items-center">
-          <div className="bg-[#0f1219] border border-[#1b1f2a] h-[52px] flex items-center gap-2 px-4 rounded-[16px] shrink-0">
-            <div className="bg-[#3d82f5] rounded-[8px] size-6 flex items-center justify-center">
-              <img src="/icons/features/check.svg" alt="" className="size-4" />
-            </div>
-            <span className="text-[12px] font-medium text-[#e9ecf2] tracking-[-0.18px] leading-[18px] whitespace-nowrap">
-              상품 할인 있음
+          <div className="flex items-center gap-[4px] shrink-0">
+            <img src="/icons/features/alert-circle.svg" alt="" className="size-[20px]" />
+            <span className="text-[14px] font-bold text-[#b4d9fb] leading-[21px] whitespace-nowrap">
+              해당 콘텐츠의 보호되고 있습니다.
             </span>
           </div>
-          <div className="flex-1 bg-[#0b0e14] border border-[#1b1f2a] h-[52px] flex items-center justify-between px-4 rounded-[16px]">
-            <span className="text-[14px] font-medium text-[#f8faff] tracking-[-0.21px] leading-[21px]">17,000</span>
-            <span className="text-[14px] font-medium text-[#f8faff] tracking-[-0.21px] leading-[21px]">원</span>
+        </div>
+
+        {/* Video thumbnail */}
+        <div className="relative h-[284px] w-full rounded-[12px] overflow-hidden">
+          <img
+            src="/images/features-video-bg.png"
+            alt=""
+            className="absolute inset-0 w-full h-full object-cover opacity-50"
+          />
+          <img
+            src="/images/features-video-thumb.png"
+            alt="lecture video"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          {/* Video controls overlay */}
+          <div className="absolute bottom-0 left-0 right-0 p-[16px] flex flex-col gap-[8px]">
+            <img
+              src="/images/features-video-progress-bg.png"
+              alt=""
+              className="absolute inset-0 w-full h-full object-cover pointer-events-none"
+            />
+            {/* Progress bar */}
+            <div className="relative h-[2px] w-full rounded-full bg-black/50 mt-1">
+              <div className="h-[2px] w-[44px] rounded-full bg-white/50" />
+              <div className="absolute top-1/2 -translate-y-1/2 left-[44px] size-[10px] rounded-full bg-white -ml-[5px]" />
+            </div>
+            {/* Controls row */}
+            <div className="flex items-center justify-between">
+              <div className="flex gap-[8px] items-center">
+                <div className="size-[32px] rounded-full bg-black/50 flex items-center justify-center pl-[3px]">
+                  <img src="/icons/features/play.svg" alt="play" className="size-[20px]" />
+                </div>
+                <div className="size-[32px] rounded-full bg-black/50 flex items-center justify-center">
+                  <img src="/icons/features/volume.svg" alt="volume" className="size-[24px]" />
+                </div>
+                <div className="h-[32px] px-[12px] rounded-full bg-black/50 flex items-center">
+                  <span className="text-[14px] font-medium text-white tracking-[-0.21px] leading-[21px] whitespace-nowrap">
+                    0:01 / 15:32
+                  </span>
+                </div>
+              </div>
+              <div className="flex gap-[8px] items-center">
+                <div className="size-[32px] rounded-full bg-black/50 flex items-center justify-center">
+                  <img src="/icons/features/fast-forward.svg" alt="fast-forward" className="size-[20px]" />
+                </div>
+                <div className="size-[32px] rounded-full bg-black/50 flex items-center justify-center">
+                  <img src="/icons/features/expand.svg" alt="fullscreen" className="size-[20px]" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Comments section */}
+      <div className="flex flex-col gap-[16px]">
+        <span className="text-[20px] font-bold text-[#e9ecf2] tracking-[-0.3px] leading-[30px]">
+          댓글
+        </span>
+        <div className="flex flex-col gap-[8px]">
+          {/* Student comment */}
+          <div className="flex flex-col gap-[8px]">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-[4px]">
+                <div className="size-[16px] rounded-full bg-[#1b1f2a] flex items-center justify-center">
+                  <img src="/icons/features/user-profile.svg" alt="" className="size-[10px]" />
+                </div>
+                <span className="text-[12px] font-medium text-[#e9ecf2] tracking-[-0.18px] leading-[18px]">
+                  이동규 학생
+                </span>
+              </div>
+              <span className="text-[12px] font-medium text-[#a9b1c1] tracking-[-0.18px] leading-[18px]">
+                2026. 02. 09
+              </span>
+            </div>
+            <p className="text-[14px] font-medium text-[#e9ecf2] tracking-[-0.21px] leading-[21px]">
+              선생님, 강의 잘 들었습니다! 그런데 개념 복습을 하다가 너무 헷갈리는 부분이 생겨서 질문<br />
+              남깁니다. ㅠㅠ 교재를 보니까 &apos;-8의 세제곱근&apos;이랑 &apos;세제곱근 -8&apos;이라는 말이 나오는데,<br />
+              이 두 개가 같은 건가요?
+            </p>
+            <div className="flex justify-end">
+              <span className="text-[12px] font-medium text-[#a9b1c1] tracking-[-0.18px] leading-[18px]">
+                수정하기 · 삭제하기
+              </span>
+            </div>
+          </div>
+
+          {/* Teacher reply */}
+          <div className="flex gap-[8px] items-start">
+            <img src="/icons/features/reply-arrow.svg" alt="" className="size-[16px] mt-[1px] shrink-0 -scale-x-100" />
+            <div className="flex flex-col gap-[8px] flex-1 min-w-0">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-[4px]">
+                  <div className="size-[16px] rounded-full overflow-hidden shrink-0">
+                    <img src="/images/features-teacher-profile.png" alt="" className="size-full object-cover" />
+                  </div>
+                  <span className="text-[12px] font-medium text-[#e9ecf2] tracking-[-0.18px] leading-[18px]">
+                    홍길동 선생님
+                  </span>
+                </div>
+                <span className="text-[12px] font-medium text-[#a9b1c1] tracking-[-0.18px] leading-[18px]">
+                  2026. 02. 09
+                </span>
+              </div>
+              <p className="text-[14px] font-medium text-[#e9ecf2] tracking-[-0.21px] leading-[21px]">
+                안녕하세요, 수포자탈출기님! 아주 예리하고 좋은 질문입니다! 😊 결론부터 말씀드리면, 두 가지는 전혀 다른 의미를 가집니다.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Input */}
+        <div className="h-[52px] bg-[#0b0e14] border border-[#1b1f2a] rounded-[16px] flex items-center justify-between px-[16px]">
+          <span className="text-[14px] font-medium text-[#f8faff] tracking-[-0.21px] leading-[21px] truncate">
+            와 드디어 다크 모드가 나왔네요! 👏 밤에 작업할 때마다 눈이 너무 부셨는데 정말 감사합니다.
+          </span>
+          <div className="size-[32px] rounded-full bg-[#3d82f5] flex items-center justify-center shrink-0 ml-2">
+            <img src="/icons/features/arrow-up.svg" alt="send" className="size-[16px]" />
           </div>
         </div>
       </div>
@@ -147,91 +192,120 @@ function ProductMock() {
   );
 }
 
-function NotionMock({ imageAsset }: { imageAsset: string }) {
+// Feature 2: KakaoTalk payment notification mock
+function KakaoMock() {
   return (
-    <div className="flex flex-col gap-[20px] w-full">
-      {/* Tabs */}
-      <div className="bg-[#1b1f2a] border border-[#1b1f2a] rounded-[16px] p-2">
-        <div className="flex gap-1 h-10 items-center">
-          <div className="flex-1 h-10 flex items-center justify-center rounded-[12px]">
-            <span className="text-[14px] font-medium text-[#a9b1c1] tracking-[-0.21px] leading-[21px] whitespace-nowrap">
-              직접 작성하기
-            </span>
-          </div>
-          <div className="flex-1 h-10 flex items-center justify-center bg-[#3d82f5] rounded-[12px]">
-            <span className="text-[14px] font-bold text-[#f8faff] leading-[21px] whitespace-nowrap">
-              노션 임베드하기
-            </span>
-          </div>
+    <div className="relative w-full h-full overflow-hidden rounded-[16px]">
+      <img
+        src="/images/features-kakao-message.png"
+        alt="카카오 알림톡 결제 완료"
+        className="absolute inset-0 w-full h-full object-cover object-top"
+      />
+    </div>
+  );
+}
+
+// Feature 3: AI Q&A mock
+function AIMock() {
+  return (
+    <div className="flex flex-col gap-[32px] w-full">
+      {/* Header */}
+      <div className="flex flex-col gap-[8px]">
+        <span className="text-[24px] font-bold text-[#e9ecf2] tracking-[-0.36px] leading-[32px] whitespace-nowrap">
+          지수함수와 로그함수
+        </span>
+        <div className="flex gap-[8px] items-center text-[18px] font-medium text-[#e9ecf2] tracking-[-0.27px] leading-[26px]">
+          <span className="whitespace-nowrap">지수</span>
+          <span>-</span>
+          <span className="whitespace-nowrap">거듭제곱근 기초 연산 및 개념 확인 문제</span>
         </div>
       </div>
 
-      {/* 노션 링크 input */}
-      <div className="flex gap-2 items-end w-full">
-        <div className="flex-1 flex flex-col gap-2">
-          <span className="text-[14px] font-medium text-[#e9ecf2] tracking-[-0.21px] leading-[21px]">
-            노션 링크*
-          </span>
-          <div className="bg-[#0b0e14] border border-[#1b1f2a] h-[52px] flex items-center px-4 rounded-[16px]">
-            <span className="text-[14px] font-medium text-[#e9ecf2] tracking-[-0.21px] leading-[21px] truncate">
-              https://time-shrine-949.notion.site/2540f1f571ca80c3...
-            </span>
-          </div>
-        </div>
-        <div className="bg-[#3d82f5] h-[52px] flex items-center px-4 rounded-[16px] shrink-0">
-          <span className="text-[12px] font-medium text-[#f8faff] tracking-[-0.18px] leading-[18px] whitespace-nowrap">
-            확인
-          </span>
-        </div>
-      </div>
-
-      {/* Notion preview card */}
-      <div className="rounded-[16px] overflow-hidden w-full">
-        {/* Notion header bar */}
-        <div className="bg-[#1b1f2a] flex items-center gap-2 px-4 py-3">
-          <div className="size-5 rounded-sm bg-white/10 flex items-center justify-center overflow-hidden shrink-0">
-            <img
-              src={imageAsset}
-              alt=""
-              className="size-full object-contain"
-            />
-          </div>
-          <span className="text-[12px] text-[#b0b0b5] leading-[18px]">
-            This section is an independent external Notion document.
-          </span>
-        </div>
-        {/* Notion page preview */}
-        <div className="bg-[#f7f6f3] p-5 flex flex-col gap-4">
-          <div className="text-2xl">🏫</div>
-          <div>
-            <p className="text-[#37352f] text-[22px] font-bold leading-tight mb-3">
-              노션으로 온라인 교실을 운영해볼까요?
-            </p>
-            <div className="bg-[#f0eeeb] rounded-md px-3 py-2 flex flex-col gap-1">
-              <div className="flex items-center gap-2">
-                <span className="text-[10px] text-[#9b9a97]">▣</span>
-                <span className="text-[13px] text-[#37352f]">온라인 교실 템플릿</span>
+      {/* Q&A comments */}
+      <div className="flex flex-col gap-[8px]">
+        {/* Student question with PDF */}
+        <div className="flex flex-col gap-[8px]">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-[4px]">
+              <div className="size-[16px] rounded-full bg-[#1b1f2a] flex items-center justify-center">
+                <img src="/icons/features/user-profile.svg" alt="" className="size-[10px]" />
               </div>
-              <div className="flex items-center gap-2">
-                <span className="text-[10px] text-[#e8c547]">💰</span>
-                <span className="text-[13px] text-[#37352f]">32,000원</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="text-[10px] text-[#9b9a97]">🏫</span>
-                <span className="text-[13px] text-[#37352f]">학교</span>
-              </div>
+              <span className="text-[12px] font-medium text-[#e9ecf2] tracking-[-0.18px] leading-[18px]">
+                이동규 학생
+              </span>
             </div>
+            <span className="text-[12px] font-medium text-[#a9b1c1] tracking-[-0.18px] leading-[18px]">
+              2026. 02. 09
+            </span>
           </div>
-          {/* Tablet screenshot */}
-          <div className="rounded-xl overflow-hidden mt-2">
-            <img
-              src="/images/features-card3.png"
-              alt="notion preview"
-              className="w-full object-contain"
-            />
+          {/* PDF attachment */}
+          <div className="bg-[#0f1219] border border-[#1b1f2a] rounded-[16px] p-[16px] flex items-center gap-[8px]">
+            <div className="size-[40px] rounded-[8px] flex items-center justify-center shrink-0"
+              style={{ background: "linear-gradient(90deg, #3d82f5 0%, #0360ef 100%)" }}>
+              <span className="text-[12px] font-medium text-[#e9ecf2] text-center leading-[18px]">PDF</span>
+            </div>
+            <div className="flex-1 min-w-0">
+              <p className="text-[14px] font-medium text-[#dcdddf] tracking-[-0.21px] leading-[21px] truncate">
+                거듭제곱근 기초 연산 및 개념 확인 문제.pdf
+              </p>
+              <p className="text-[12px] font-medium text-[#5e677a] tracking-[-0.18px] leading-[18px]">12MB</p>
+            </div>
+            <img src="/icons/features/download.svg" alt="download" className="size-[24px] shrink-0" />
+          </div>
+          <div className="flex justify-end">
+            <span className="text-[12px] font-medium text-[#a9b1c1] leading-[18px]">답글달기</span>
+          </div>
+        </div>
+
+        {/* AI reply */}
+        <div className="flex gap-[8px] items-start">
+          <img src="/icons/features/reply-arrow.svg" alt="" className="size-[16px] mt-[1px] shrink-0 -scale-x-100" />
+          <div className="flex flex-col gap-[8px] flex-1 min-w-0">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-[4px]">
+                <div className="size-[16px] rounded-full overflow-hidden shrink-0">
+                  <img src="/images/features-ai-profile.png" alt="" className="size-full object-cover" />
+                </div>
+                <span className="text-[12px] font-medium text-[#e9ecf2] tracking-[-0.18px] leading-[18px]">
+                  AI 조교
+                </span>
+                <img src="/icons/features/star.svg" alt="" className="size-[12px]" />
+              </div>
+              <span className="text-[12px] font-medium text-[#a9b1c1] tracking-[-0.18px] leading-[18px]">
+                2026. 02. 09
+              </span>
+            </div>
+            <p className="text-[14px] font-medium text-[#e9ecf2] tracking-[-0.21px] leading-[21px]">
+              &quot;과제 하느라 고생 많았습니다! 전체적으로 연산 규칙은 잘 적용하고 있는데, 1번 서술형 문제에서 작은 실수가 있었네요. 😉<br /><br />
+              앞서 강의에서 강조했던 핵심 개념이니, 헷갈린다면 해당 파트의 영상을 다시 한번 가볍게 복습하고 넘어가기를 추천합니다.<br /><br />
+              충분히 잘하고 있으니 조금만 더 힘내요!&quot;
+            </p>
           </div>
         </div>
       </div>
+
+      {/* Input */}
+      <div className="h-[52px] bg-[#0b0e14] border border-[#1b1f2a] rounded-[16px] flex items-center justify-between px-[16px]">
+        <span className="text-[14px] font-medium text-[#5e677a] tracking-[-0.21px] leading-[21px]">
+          질문답변을 작성해주세요.
+        </span>
+        <div className="size-[32px] rounded-full bg-[#5e677a] flex items-center justify-center shrink-0">
+          <img src="/icons/features/arrow-up.svg" alt="send" className="size-[16px]" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// Feature 4: Payment UI mock (full image)
+function PaymentMock() {
+  return (
+    <div className="relative w-full h-full overflow-hidden rounded-[16px]">
+      <img
+        src="/images/features-payment.png"
+        alt="결제 방법"
+        className="absolute inset-0 w-full h-full object-cover object-top"
+      />
     </div>
   );
 }
@@ -310,10 +384,10 @@ export default function FeaturesSection() {
 
       {/* 데스크톱 레이아웃 */}
       <div className="hidden md:block py-36">
-        <div className="max-w-[1360px] mx-auto px-10">
+        <div className="max-w-[1440px] mx-auto px-10">
           <div className="flex gap-10 items-start">
             {/* Left sticky heading */}
-            <div className="sticky top-[224px] w-[27%] shrink-0">
+            <div className="sticky top-[224px] w-[370px] shrink-0">
               <h2 className="text-[#fefefe] text-[48px] font-black leading-[72px] tracking-[-1.2px]">
                 가장 쉽고
                 <br />
@@ -326,27 +400,23 @@ export default function FeaturesSection() {
               {features.map((feature, index) => (
                 <div key={index} className="flex gap-10 items-center justify-center w-full">
                   {/* Mock UI card */}
-                  <div className="relative flex-1 min-w-0">
-                    <div className="w-full aspect-[540/696] bg-[#0b0e14] border-[8px] border-black rounded-3xl overflow-hidden p-5 flex flex-col">
-                      {feature.mock === "product" && <ProductMock />}
-                      {feature.mock !== "product" && (
-                        <NotionMock
-                          imageAsset={
-                            feature.mock === "notion"
-                              ? "/images/features-card2.png"
-                              : feature.mock === "notion2"
-                              ? "/images/features-card3.png"
-                              : "/images/features-card4.png"
-                          }
-                        />
-                      )}
+                  <div className="relative flex-1 min-w-0 max-w-[540px]">
+                    <div className={`w-full bg-[#0b0e14] border-[8px] border-black rounded-3xl overflow-hidden p-5 flex flex-col ${
+                      feature.mock === "kakao" || feature.mock === "payment"
+                        ? "aspect-[540/600]"
+                        : "aspect-[540/696]"
+                    }`}>
+                      {feature.mock === "video" && <VideoMock />}
+                      {feature.mock === "kakao" && <KakaoMock />}
+                      {feature.mock === "ai" && <AIMock />}
+                      {feature.mock === "payment" && <PaymentMock />}
                     </div>
                     {/* Border overlay */}
                     <div className="absolute inset-0 rounded-3xl border-2 border-[#a9b6c2] pointer-events-none" />
                   </div>
 
                   {/* Feature description */}
-                  <div className="w-[27%] shrink-0 flex flex-col gap-5">
+                  <div className="w-[370px] shrink-0 flex flex-col gap-5">
                     <div className="flex flex-col gap-2">
                       <FeatureBadge number={feature.badge} />
                       <h3 className="text-[#fefefe] text-[28px] font-bold leading-[36px] tracking-[-0.42px]">

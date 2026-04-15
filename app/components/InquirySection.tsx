@@ -9,13 +9,13 @@ type Status = "idle" | "loading" | "success" | "error";
 function RadioCircle({ selected }: { selected: boolean }) {
   return (
     <div
-      className={`size-6 rounded-full border-2 flex items-center justify-center shrink-0 transition-colors ${
+      className={`size-6 rounded-full flex items-center justify-center shrink-0 transition-colors ${
         selected
           ? "border-[#3d82f5] bg-[#3d82f5]"
-          : "border-[#2a2f3d] bg-transparent"
+          : "border-[#2a2f3d] bg-[#5E677A]"
       }`}
     >
-      {selected && <div className="size-2.5 rounded-full bg-white" />}
+      <div className="size-3 rounded-full bg-white" />
     </div>
   );
 }
@@ -164,9 +164,9 @@ export default function InquirySection() {
         {/* 개인정보 동의 */}
         <div className="flex items-center justify-between w-full">
           <button type="button" onClick={() => setAgreed(!agreed)} className="flex gap-2 items-center">
-            <div className={`flex items-center justify-center p-0.5 rounded-[8px] size-6 transition-colors ${agreed ? "bg-[#3d82f5]" : "bg-[#1b1f2a]"}`}>
+            <div className={`flex items-center justify-center p-0.5 rounded-[8px] size-6 transition-colors ${agreed ? "bg-[#3d82f5]" : "bg-[#5E677A]"}`}>
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                <path d="M14 7L8.03374 13L6 10.9548" stroke={agreed ? "white" : "#2a2f3d"} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M14 7L8.03374 13L6 10.9548" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </div>
             <span className="text-[#f8faff] text-[14px] font-medium leading-[21px] tracking-[-0.14px] whitespace-nowrap">개인정보 수집 및 이용 동의</span>
