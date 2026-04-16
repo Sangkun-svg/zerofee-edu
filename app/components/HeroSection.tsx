@@ -64,7 +64,7 @@ export default function HeroSection() {
           </div>
 
           {/* 대시보드 이미지 - 모바일 */}
-          <div className="sm:hidden w-[calc(100%-40px)] mt-7 mb-5 mx-auto">
+          <div className="sm:hidden w-[calc(100%-40px)] mb-5 mx-auto">
             <img
               alt="zerofee edu 플랫폼 대시보드"
               src={imgDashboardMobile}
@@ -75,7 +75,7 @@ export default function HeroSection() {
       </div>
 
       {/* 버튼-이미지 최소 간격 보장 (82px) */}
-      <div className="hidden sm:block relative z-10 shrink-0 min-h-[82px] max-h-[82px] flex-1" />
+      <div className="hidden sm:block relative z-10 shrink-0 min-h-[72px] max-h-[72px] flex-1" />
 
       {/* 대시보드 이미지 - 데스크톱 (흐름에 포함, overflow-hidden으로 크롭) */}
       <div className="hidden sm:block relative z-10 shrink-0 w-full max-w-[1080px] mx-auto rounded-tl-[48px] rounded-tr-[48px] overflow-hidden px-10">
