@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 
 type Plan = "premium" | "enterprise";
 type ContactMethod = "kakao" | "email" | "phone";
@@ -216,7 +217,7 @@ function FormFields({
           </div>
           <span className="text-[#f8faff] text-[14px] font-medium leading-[21px] tracking-[-0.14px] whitespace-nowrap">개인정보 수집 및 이용 동의</span>
         </button>
-        <button type="button" className="text-[#a9b1c1] text-[14px] font-medium leading-[21px] tracking-[-0.14px] whitespace-nowrap hover:text-[#f8faff] transition-colors">보기</button>
+        <Link href="/privacy" className="text-[#a9b1c1] text-[14px] font-medium leading-[21px] tracking-[-0.14px] whitespace-nowrap hover:text-[#f8faff] transition-colors">보기</Link>
       </div>
 
       {status === "error" && (
