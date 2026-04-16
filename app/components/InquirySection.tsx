@@ -224,11 +224,11 @@ export default function InquirySection() {
     <section id="contact" className="w-full">
       {/* 모바일 */}
       <div className="flex md:hidden flex-col gap-8 items-center px-5 py-[104px]">
-        <div className="flex flex-col gap-2 items-start w-full">
-          <p className="text-[#f8faff] text-[28px] font-bold leading-[36px] tracking-[-0.42px]">가장 쉽고 편리한 교육 환경 준비</p>
-          <div>
-            <p className="text-[#f8faff] text-[28px] font-bold leading-[36px] tracking-[-0.42px]">상담을 신청해주시면</p>
-            <p className="text-[#f8faff] text-[28px] font-bold leading-[36px] tracking-[-0.42px]">1일 이내로 답변드리겠습니다</p>
+        <div className="flex flex-col gap-2 items-start w-fit">
+          <p className="text-[#f8faff] text-[28px] font-bold leading-[36px] tracking-[-0.42px] text-center">가장 쉽고 편리한 교육 환경 준비</p>
+          <div className="mx-auto">
+            <p className="text-[#f8faff] text-[28px] font-bold leading-[36px] tracking-[-0.42px] text-center">상담을 신청해주시면</p>
+            <p className="text-[#f8faff] text-[28px] font-bold leading-[36px] tracking-[-0.42px] text-center">1일 이내로 답변드리겠습니다</p>
           </div>
         </div>
         <form onSubmit={handleSubmit} className="backdrop-blur-[10px] bg-[#0f1219] border border-[#1b1f2a] flex flex-col gap-[52px] items-start p-6 rounded-[16px] w-full">
