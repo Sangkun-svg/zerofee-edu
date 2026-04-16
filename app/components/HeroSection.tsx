@@ -8,7 +8,7 @@ const imgEdit = "/images/edit-01.png";
 
 export default function HeroSection() {
   return (
-    <section className="relative w-full overflow-hidden bg-[#0b0e14] flex flex-col" style={{ height: "100svh" }}>
+    <section className="relative w-full overflow-hidden bg-[#0b0e14] flex flex-col min-h-[100svh] sm:h-[100svh]">
       {/* 배경 글로우 */}
       <div className="absolute inset-0 pointer-events-none">
         <img
@@ -64,7 +64,7 @@ export default function HeroSection() {
           </div>
 
           {/* 대시보드 이미지 - 모바일 */}
-          <div className="sm:hidden w-[calc(100%-40px)] overflow-hidden mt-7 mb-5 mx-auto">
+          <div className="sm:hidden w-[calc(100%-40px)] mt-7 mb-5 mx-auto">
             <img
               alt="zerofee edu 플랫폼 대시보드"
               src={imgDashboardMobile}
