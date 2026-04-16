@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import Link from "next/link";
 
 function scrollTo(id: string) {
   document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
@@ -11,6 +11,7 @@ export default function Header() {
     <header className="fixed top-8 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-40px)] md:w-[calc(100%-80px)] max-w-[1360px] h-[64px] md:h-[80px]">
       <div className="backdrop-blur-[10px] bg-[rgba(255,255,255,0.04)] border border-[rgba(255,255,255,0.04)] flex items-center justify-between px-6 md:pl-10 md:pr-5 rounded-[40px] h-full">
         <div className="flex items-center gap-8">
+          <Link href="/" aria-label="홈으로 이동">
           <svg width="188" height="30" viewBox="0 0 188 30" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M0.728766 29.5142C0.417256 29.7218 4.35315e-07 29.4985 4.12302e-07 29.1241L-1.11861e-06 4.21875C-1.13452e-06 3.95987 0.209865 3.75 0.468749 3.75L25.7812 3.75C26.0401 3.75 26.25 3.95987 26.25 4.21875L26.25 29.1241C26.25 29.4985 25.8327 29.7218 25.5212 29.5142L23.2288 27.9858C23.0713 27.8809 22.8662 27.8809 22.7087 27.9858L19.9475 29.8267C19.7901 29.9316 19.5849 29.9316 19.4275 29.8267L16.6663 27.9858C16.5088 27.8809 16.3037 27.8809 16.1462 27.9858L13.385 29.8267C13.2276 29.9316 13.0224 29.9316 12.865 29.8267L10.1038 27.9858C9.94631 27.8809 9.74119 27.8809 9.58373 27.9858L6.82252 29.8267C6.66506 29.9316 6.45994 29.9316 6.30248 29.8267L3.54127 27.9858C3.38381 27.8809 3.17869 27.8809 3.02123 27.9858L0.728766 29.5142Z" fill="#0360EF"/>
             <path d="M18.3594 11.8818L18.2578 11.9912L12.3311 18.4336H18.75V21.5625H7.5V19.0351L7.60156 18.9258L13.4902 12.5234H7.90918V9.37498H18.3594V11.8818Z" fill="url(#paint0_linear_1387_12078)"/>
@@ -31,6 +32,7 @@ export default function Header() {
             </linearGradient>
             </defs>
           </svg>
+          </Link>
           <button
             onClick={() => scrollTo("pricing")}
             className="hidden md:block text-[#fefefe] text-[16px] font-medium leading-6 tracking-[-0.24px] whitespace-nowrap hover:opacity-80 transition-opacity"

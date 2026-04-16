@@ -308,7 +308,7 @@ export default function InquirySection() {
         />
       )}
       {/* 모바일 */}
-      <div className="flex min-[1080px]:hidden flex-col gap-8 items-center px-5 py-[104px]">
+      <div className="flex min-[1080px]:hidden flex-col gap-8 items-center px-5 py-[104px] max-w-[640px] mx-auto">
         <div className="flex flex-col gap-2 items-start w-fit">
           <p className="text-[#f8faff] text-[28px] font-bold leading-[36px] tracking-[-0.42px] text-center">가장 쉽고 편리한 교육 환경 준비</p>
           <div className="mx-auto">
@@ -323,7 +323,7 @@ export default function InquirySection() {
       </div>
 
       {/* 데스크탑 */}
-      <div className="hidden md:flex gap-5 items-start justify-center w-full max-w-[1360px] mx-auto px-10 py-[144px]">
+      <div className="hidden min-[1080px]:flex gap-5 items-start justify-center w-full max-w-[1360px] mx-auto px-10 py-[144px]">
         <div className="flex flex-1 flex-col gap-2 items-start pt-8">
           <p className="text-[#f8faff] text-[28px] font-bold leading-9 tracking-[-0.42px]">가장 쉽고 편리한 교육 환경 준비</p>
           <div>

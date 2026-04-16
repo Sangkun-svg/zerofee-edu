@@ -1,15 +1,15 @@
 "use client";
 
 const imgBgGlow = "/images/hero-bg-glow.png";
-const imgDashboard = "/images/banner-pc-img.png";
+const imgDashboard = "/images/hero-pc.png";
 const imgDashboardMobile = "/images/banner-mob.png";
 const imgMessageIcon = "/icons/message.svg";
 const imgEdit = "/images/edit-01.png";
 
 export default function HeroSection() {
   return (
-    // 640px(sm) 기준으로 최소 높이 조절
-    <section className="relative w-full overflow-hidden bg-[#0b0e14]" style={{ height: "100svh" }}>
+    <section className="relative w-full overflow-hidden bg-[#0b0e14] flex flex-col" style={{ height: "100svh" }}>
+      {/* 배경 글로우 */}
       <div className="absolute inset-0 pointer-events-none">
         <img
           alt=""
@@ -18,8 +18,8 @@ export default function HeroSection() {
         />
       </div>
 
-      {/* 상단 여백 조절: 640px 미만 pt-[171px], 이상 pt-[216px] */}
-      <div className="relative flex flex-col items-center pt-[171px] sm:pt-[216px] px-5 sm:px-10">
+      {/* 콘텐츠 영역 (텍스트 + 버튼) */}
+      <div className="relative z-10 flex flex-col items-center pt-[171px] sm:pt-[216px] px-5 sm:px-10 shrink-0">
         <div className="flex flex-col items-center gap-[52px] sm:gap-8">
           <div className="flex flex-col items-center gap-4">
             <div className="btn-gradient btn-gradient-black bg-[rgba(255,255,255,0.1)] border border-white flex items-center justify-center gap-1 h-10 px-4 rounded-[32px]">
@@ -30,12 +30,9 @@ export default function HeroSection() {
 
             <div className="text-center">
               <h1 className="text-[#f8faff] font-black tracking-[-0.8px] sm:tracking-[-1.2px] text-[32px] leading-[48px] sm:text-[48px] sm:leading-[72px] sm:whitespace-nowrap">
-                {/* 640px(sm) 이상에서 보임 */}
                 <span className="hidden sm:block">
                   하나의 플랫폼에서<br/>효율적인 교육 운영을 시작하세요
                 </span>
-
-                {/* 640px(sm) 미만에서 보임 */}
                 <span className="block sm:hidden">
                   하나의 플랫폼에서<br/>효율적인 교육 운영을<br/>시작하세요
                 </span>
@@ -43,7 +40,7 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* 버튼 레이아웃: 640px 미만 세로 배치, 이상 가로 배치 */}
+          {/* 버튼 */}
           <div className="flex flex-col sm:flex-row gap-2 items-center">
             <button
               onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
@@ -65,29 +62,29 @@ export default function HeroSection() {
               </span>
             </button>
           </div>
-    
-          {/* 대시보드 이미지 - 모바일 (640px 미만에서만 보임) */}
-          <div className="sm:hidden w-[calc(100%-40px)] rounded-[14px] overflow-hidden mt-7 mb-5 mx-auto">
+
+          {/* 대시보드 이미지 - 모바일 */}
+          <div className="sm:hidden w-[calc(100%-40px)] overflow-hidden mt-7 mb-5 mx-auto">
             <img
               alt="zerofee edu 플랫폼 대시보드"
               src={imgDashboardMobile}
               className="w-full h-auto block"
             />
           </div>
-          
-          {/* 대시보드 이미지 - 데스크톱 (640px 이상에서 보임) */}
-          <div className="hidden sm:block w-full max-w-[1080px] rounded-tl-[48px] rounded-tr-[48px] overflow-hidden px-20 mt-8">
-            <img
-              alt="zerofee edu 플랫폼 대시보드"
-              src={imgDashboard}
-              className="w-full h-auto block"
-            />
-          </div>
         </div>
       </div>
 
+      {/* 버튼-이미지 최소 간격 보장 (82px) */}
+      <div className="hidden sm:block relative z-10 shrink-0 min-h-[82px] flex-1" />
 
-
+      {/* 대시보드 이미지 - 데스크톱 (흐름에 포함, overflow-hidden으로 크롭) */}
+      <div className="hidden sm:block relative z-10 shrink-0 w-full max-w-[1080px] mx-auto rounded-tl-[48px] rounded-tr-[48px] overflow-hidden px-10">
+        <img
+          alt="zerofee edu 플랫폼 대시보드"
+          src={imgDashboard}
+          className="w-full h-auto block"
+        />
+      </div>
     </section>
   );
 }

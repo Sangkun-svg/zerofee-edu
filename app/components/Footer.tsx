@@ -69,8 +69,8 @@ export default function Footer() {
 
         {/* 링크 + 고객센터 */}
         <div className="flex flex-col gap-4 text-[12px] text-[#a9b1c1] leading-4 tracking-[-0.12px]">
-          <p className="font-medium">이용약관</p>
-          <p className="font-bold">개인정보처리방침</p>
+          <a href="/terms" className="font-medium hover:text-[#f8faff] transition-colors w-fit">이용약관</a>
+          <a href="/privacy" className="font-bold hover:text-[#f8faff] transition-colors w-fit">개인정보처리방침</a>
           <div className="flex flex-col gap-1 font-medium">
             <p>고객센터</p>
             <p>전화번호 : 010-3242-8118</p>

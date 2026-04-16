@@ -110,7 +110,7 @@ function MobileFeatureCard({ feature, index }: { feature: typeof features[0]; in
         transitionDelay: `${index * 80}ms`,
       }}
     >
-      <div className="w-full max-w-[600px] mx-auto rounded-[16px] overflow-hidden">
+      <div className="w-full max-w-[600px] mx-auto overflow-hidden">
         <img
           src={`/images/${feature.pcImg}`}
           alt={feature.title.join(" ")}
@@ -176,7 +176,7 @@ function DesktopFeatureCard({ feature }: { feature: typeof features[0] }) {
           </div>
         )}
         {feature.pcImg.endsWith(".gif") && (
-          <div className="absolute inset-0 rounded-3xl border-2 border-[#a9b6c2] pointer-events-none" />
+          <div className="absolute inset-0 border-2 border-[#a9b6c2] pointer-events-none" />
         )}
       </div>
 
