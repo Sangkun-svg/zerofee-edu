@@ -1,3 +1,30 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
+
+function useFadeInOnScroll() {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.15 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  return { ref, visible };
+}
+
 const features = [
   {
     badge: "1",
@@ -71,6 +98,114 @@ function FeatureBadge({ number }: { number: string }) {
   );
 }
 
+function MobileFeatureCard({ feature, index }: { feature: typeof features[0]; index: number }) {
+  const { ref, visible } = useFadeInOnScroll();
+  return (
+    <div
+      ref={ref}
+      className="flex flex-col gap-5 items-center transition-all duration-700 ease-out"
+      style={{
+        opacity: visible ? 1 : 0,
+        transform: visible ? "translateY(0)" : "translateY(2rem)",
+        transitionDelay: `${index * 80}ms`,
+      }}
+    >
+      <div className="w-full max-w-[600px] mx-auto rounded-[16px] overflow-hidden">
+        <img
+          src={`/images/${feature.pcImg}`}
+          alt={feature.title.join(" ")}
+          className="w-full h-auto block"
+        />
+      </div>
+      <div className="flex flex-col gap-2 w-full max-w-[600px]">
+        <div className="flex flex-col gap-2">
+          <FeatureBadge number={feature.badge} />
+          <h3 className="text-[#fefefe] text-[20px] font-bold leading-[30px] tracking-[-0.3px]">
+            {feature.title.map((line, i) => (
+              <span key={i}>
+                {line}
+                {i < feature.title.length - 1 && <br />}
+              </span>
+            ))}
+          </h3>
+        </div>
+        <p className="text-[#fefefe] text-[14px] font-medium leading-[21px] tracking-[-0.21px]">
+          {feature.description.map((line, i) => (
+            <span key={i}>
+              {line}
+              {i < feature.description.length - 1 && <br />}
+            </span>
+          ))}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function DesktopFeatureCard({ feature }: { feature: typeof features[0] }) {
+  const { ref, visible } = useFadeInOnScroll();
+  return (
+    <div
+      ref={ref}
+      className="flex gap-10 items-center justify-start w-full transition-all duration-700 ease-out"
+      style={{
+        opacity: visible ? 1 : 0,
+        transform: visible ? "translateY(0)" : "translateY(2.5rem)",
+      }}
+    >
+      {/* PC 이미지 카드 */}
+      <div className="relative flex-[540] min-w-0 max-w-[540px]">
+        {feature.pcImg.endsWith(".gif") ? (
+          <div className="w-full aspect-[540/600] border-[8px] border-black overflow-hidden bg-white relative">
+            <img
+              src={`/images/${feature.pcImg}`}
+              alt={feature.title.join(" ")}
+              className="absolute max-w-none"
+              style={{ left: "9.45%", top: "-0.69%", width: "81.1%", height: "102.19%" }}
+            />
+          </div>
+        ) : (
+          <div className="w-full overflow-hidden">
+            {feature.pcImg && (
+              <img
+                src={`/images/${feature.pcImg}`}
+                alt={feature.title.join(" ")}
+                className="w-full h-auto block"
+              />
+            )}
+          </div>
+        )}
+        {feature.pcImg.endsWith(".gif") && (
+          <div className="absolute inset-0 rounded-3xl border-2 border-[#a9b6c2] pointer-events-none" />
+        )}
+      </div>
+
+      {/* Feature description */}
+      <div className="flex-[370] min-w-0 flex flex-col gap-5">
+        <div className="flex flex-col gap-2">
+          <FeatureBadge number={feature.badge} />
+          <h3 className="text-[#fefefe] text-[28px] font-bold leading-[36px] tracking-[-0.42px]">
+            {feature.title.map((line, i) => (
+              <span key={i}>
+                {line}
+                {i < feature.title.length - 1 && <br />}
+              </span>
+            ))}
+          </h3>
+        </div>
+        <p className="text-[#fefefe] text-[16px] font-medium leading-[24px] tracking-[-0.24px]">
+          {feature.description.map((line, i) => (
+            <span key={i}>
+              {line}
+              {i < feature.description.length - 1 && <br />}
+            </span>
+          ))}
+        </p>
+      </div>
+    </div>
+  );
+}
+
 export default function FeaturesSection() {
   return (
     <section className="w-full">
@@ -80,38 +215,7 @@ export default function FeaturesSection() {
         </h2>
         <div className="flex flex-col gap-[52px]">
           {features.map((feature, index) => (
-            <div key={index} className="flex flex-col gap-5 items-center">
-              {/* 이미지 */}
-              <div className="w-full max-w-[600px] mx-auto rounded-[16px] overflow-hidden">
-                <img
-                  src={`/images/${feature.pcImg}`}
-                  alt={feature.title.join(" ")}
-                  className="w-full h-auto block"
-                />
-              </div>
-              {/* 텍스트 */}
-              <div className="flex flex-col gap-2 w-full max-w-[600px]">
-                <div className="flex flex-col gap-2">
-                  <FeatureBadge number={feature.badge} />
-                  <h3 className="text-[#fefefe] text-[20px] font-bold leading-[30px] tracking-[-0.3px]">
-                    {feature.title.map((line, i) => (
-                      <span key={i}>
-                        {line}
-                        {i < feature.title.length - 1 && <br />}
-                      </span>
-                    ))}
-                  </h3>
-                </div>
-                <p className="text-[#fefefe] text-[14px] font-medium leading-[21px] tracking-[-0.21px]">
-                  {feature.description.map((line, i) => (
-                    <span key={i}>
-                      {line}
-                      {i < feature.description.length - 1 && <br />}
-                    </span>
-                  ))}
-                </p>
-              </div>
-            </div>
+            <MobileFeatureCard key={index} feature={feature} index={index} />
           ))}
         </div>
       </div>
@@ -132,59 +236,7 @@ export default function FeaturesSection() {
             {/* Right scrollable feature rows */}
             <div className="flex flex-col gap-[52px] flex-1 min-w-0">
               {features.map((feature, index) => (
-                <div key={index} className="flex gap-10 items-center justify-start w-full">
-                  {/* PC 이미지 카드 */}
-                  <div className="relative flex-[540] min-w-0 max-w-[540px]">
-                    {feature.pcImg.endsWith(".gif") ? (
-                      /* GIF: 흰 배경 + 폰 목업 위치 */
-                      <div className="w-full aspect-[540/600] border-[8px] border-black overflow-hidden bg-white relative">
-                        <img
-                          src={`/images/${feature.pcImg}`}
-                          alt={feature.title.join(" ")}
-                          className="absolute max-w-none"
-                          style={{ left: "9.45%", top: "-0.69%", width: "81.1%", height: "102.19%" }}
-                        />
-                      </div>
-                    ) : (
-                      <div className="w-full overflow-hidden">
-                        {feature.pcImg && (
-                          <img
-                            src={`/images/${feature.pcImg}`}
-                            alt={feature.title.join(" ")}
-                            className="w-full h-auto block"
-                          />
-                        )}
-                      </div>
-                    )}
-                    {/* Border overlay */}
-                    {feature.pcImg.endsWith(".gif") && (
-                      <div className="absolute inset-0 rounded-3xl border-2 border-[#a9b6c2] pointer-events-none" />
-                    )}
-                  </div>
-
-                  {/* Feature description */}
-                  <div className="flex-[370] min-w-0 flex flex-col gap-5">
-                    <div className="flex flex-col gap-2">
-                      <FeatureBadge number={feature.badge} />
-                      <h3 className="text-[#fefefe] text-[28px] font-bold leading-[36px] tracking-[-0.42px]">
-                        {feature.title.map((line, i) => (
-                          <span key={i}>
-                            {line}
-                            {i < feature.title.length - 1 && <br />}
-                          </span>
-                        ))}
-                      </h3>
-                    </div>
-                    <p className="text-[#fefefe] text-[16px] font-medium leading-[24px] tracking-[-0.24px]">
-                      {feature.description.map((line, i) => (
-                        <span key={i}>
-                          {line}
-                          {i < feature.description.length - 1 && <br />}
-                        </span>
-                      ))}
-                    </p>
-                  </div>
-                </div>
+                <DesktopFeatureCard key={index} feature={feature} />
               ))}
             </div>
           </div>

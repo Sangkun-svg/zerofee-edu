@@ -2,25 +2,25 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "제로피 - 수수료 0% 판매 상점",
+  title: "제로피에듀",
   description:
-    "디지털 상품부터 링크페이지까지 수수료 0%, 판매 금액 그대로 크리에이터의 수익이 됩니다. 지금 제로피에서 무료 결제창을 만드세요.",
+    "VOD 인강 수강, AI 수강생 관리, 결제 알림톡 자동화까지 제로피에듀에서 한 번에 완성하세요. 온라인 학원, 인강 플랫폼, AI 교육, 학원 자동화 솔루션 제로피에듀",
   icons: {
     icon: "/images/zerofee-favicon.png",
   },
   openGraph: {
-    title: "제로피 - 수수료 0% 판매 상점",
-    siteName: "제로피",
+    title: "제로피에듀",
+    siteName: "제로피에듀",
     description:
-      "디지털 상품부터 링크페이지까지 수수료 0%, 판매 금액 그대로 크리에이터의 수익이 됩니다. 지금 제로피에서 무료 결제창을 만드세요.",
+      "VOD 인강 수강, AI 수강생 관리, 결제 알림톡 자동화까지 제로피에듀에서 한 번에 완성하세요. 온라인 학원, 인강 플랫폼, AI 교육, 학원 자동화 솔루션 제로피에듀",
     type: "website",
     images: [{ url: "/images/zerofee-edu-og.png" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "제로피 - 수수료 0% 판매 상점",
+    title: "제로피에듀",
     description:
-      "디지털 상품부터 링크페이지까지 수수료 0%, 판매 금액 그대로 크리에이터의 수익이 됩니다. 지금 제로피에서 무료 결제창을 만드세요.",
+      "VOD 인강 수강, AI 수강생 관리, 결제 알림톡 자동화까지 제로피에듀에서 한 번에 완성하세요. 온라인 학원, 인강 플랫폼, AI 교육, 학원 자동화 솔루션 제로피에듀",
     images: ["/images/zerofee-edu-og.png"],
   },
 };
