@@ -39,7 +39,7 @@ const features = [
       "일반 PG사 계약보다 최대 0.5% 낮은 수수료로",
       "결제 모듈을 제공합니다.",
     ],
-    pcImg: "feature-pc-4.png",
+    pcImg: "f-4.png",
     mobileImg: "/images/feature-mobile-2.png",
   },
 ];
@@ -74,7 +74,6 @@ function FeatureBadge({ number }: { number: string }) {
 export default function FeaturesSection() {
   return (
     <section className="w-full">
-      {/* 모바일 레이아웃 */}
       <div className="md:hidden flex flex-col gap-8 px-5 py-[104px]">
         <h2 className="text-[#fefefe] text-[28px] font-bold leading-[36px] tracking-[-0.42px] text-center w-full">
           가장 쉽고<br />편리한 교육 환경
