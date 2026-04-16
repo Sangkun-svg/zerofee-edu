@@ -9,7 +9,7 @@ const imgEdit = "/images/edit-01.png";
 export default function HeroSection() {
   return (
     // 640px(sm) 기준으로 최소 높이 조절
-    <section className="relative w-full overflow-hidden bg-[#0b0e14]">
+    <section className="relative w-full overflow-hidden bg-[#0b0e14]" style={{ height: "100svh" }}>
       <div className="absolute inset-0 pointer-events-none">
         <img
           alt=""

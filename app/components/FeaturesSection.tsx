@@ -209,7 +209,7 @@ function DesktopFeatureCard({ feature }: { feature: typeof features[0] }) {
 export default function FeaturesSection() {
   return (
     <section className="w-full">
-      <div className="md:hidden flex flex-col gap-8 px-5 py-[104px]">
+      <div className="min-[1080px]:hidden flex flex-col gap-8 px-5 py-[104px]">
         <h2 className="text-[#fefefe] text-[28px] font-bold leading-[36px] tracking-[-0.42px] text-center w-full">
           가장 쉽고<br />편리한 교육 환경
         </h2>
@@ -221,7 +221,7 @@ export default function FeaturesSection() {
       </div>
 
       {/* 데스크톱 레이아웃 */}
-      <div className="hidden md:block py-36">
+      <div className="hidden min-[1080px]:block py-36">
         <div className="max-w-[1440px] mx-auto px-10">
           <div className="flex gap-10 items-start">
             {/* Left sticky heading */}

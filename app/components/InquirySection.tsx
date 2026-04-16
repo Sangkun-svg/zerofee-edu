@@ -308,7 +308,7 @@ export default function InquirySection() {
         />
       )}
       {/* 모바일 */}
-      <div className="flex md:hidden flex-col gap-8 items-center px-5 py-[104px]">
+      <div className="flex min-[1080px]:hidden flex-col gap-8 items-center px-5 py-[104px]">
         <div className="flex flex-col gap-2 items-start w-fit">
           <p className="text-[#f8faff] text-[28px] font-bold leading-[36px] tracking-[-0.42px] text-center">가장 쉽고 편리한 교육 환경 준비</p>
           <div className="mx-auto">
