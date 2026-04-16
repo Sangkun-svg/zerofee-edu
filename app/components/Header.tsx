@@ -8,7 +8,7 @@ function scrollTo(id: string) {
 
 export default function Header() {
   return (
-    <header className="fixed top-5 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-40px)] md:w-[calc(100%-80px)] max-w-[1360px] h-[64px] md:h-[80px]">
+    <header className="fixed top-8 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-40px)] md:w-[calc(100%-80px)] max-w-[1360px] h-[64px] md:h-[80px]">
       <div className="backdrop-blur-[10px] bg-[rgba(255,255,255,0.04)] border border-[rgba(255,255,255,0.04)] flex items-center justify-between px-6 md:pl-10 md:pr-5 rounded-[40px] h-full">
         <div className="flex items-center gap-8">
           <svg width="188" height="30" viewBox="0 0 188 30" fill="none" xmlns="http://www.w3.org/2000/svg">

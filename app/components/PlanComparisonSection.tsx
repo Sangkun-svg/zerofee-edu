@@ -37,35 +37,35 @@ interface Row {
 }
 
 const rows: Row[] = [
-  { feature: "카드 수수료", premium: "0%", enterprise: "0%" },
+  { feature: "카드 수수료", premium: "2.9%", enterprise: "2.9%" },
   {
     feature: "결제 & 리포트 등 알림톡 발송",
-    premium: "카카오 알림톡 발송 400건/월\n* 초과시, 건당 50원(VAT별도)",
+    premium: "카카오 알림톡 발송 400건 / 월\n* 초과시, 건당 50원(VAT별도)",
     enterprise: "카카오 알림톡 발송 무제한\n* 무료",
     isSubtext: true,
   },
   {
-    feature: "콘텐츠 다운로드, 캡쳐, 녹화 방지",
-    premium: "활성화 유저 100명/월\n* 초과시, 유저당 150원(VAT별도)",
+    feature: "PDF & 영상 다운로드, 캡쳐, 녹화 방지",
+    premium: "활성화 유저 100명 / 월\n* 초과시, 유저당 150원(VAT별도)",
     enterprise: "활성화 유저 무제한\n* 무료",
     isSubtext: true,
   },
   {
-    feature: "콘텐츠 용량",
-    premium: "용량 500GB/월\n* 초과시, 1GB당 30원(VAT별도)",
+    feature: "PDF & 영상 파일 용량",
+    premium: "용량 500GB / 월\n* 초과시, 1GB당 30원(VAT별도)",
     enterprise: "용량 무제한\n* 무료",
     isSubtext: true,
   },
-  { feature: "제한 없는 상품 등록", premium: "check", enterprise: "check" },
-  { feature: "모든 고객 데이터 수집", premium: "check", enterprise: "check" },
-  { feature: "노션 연동", premium: "check", enterprise: "check" },
-  { feature: "링크페이(일반)", premium: "dash", enterprise: "check" },
-  { feature: "링크페이(구독)", premium: "dash", enterprise: "check" },
-  { feature: "커스텀 할인 쿠폰", premium: "dash", enterprise: "dash" },
-  { feature: "타임세일", premium: "dash", enterprise: "check" },
-  { feature: "고객 데이터 대시보드", premium: "check", enterprise: "check" },
-  { feature: "유입/전환 데이터 대시보드", premium: "dash", enterprise: "dash" },
-  { feature: "검색노출(SEO) 설정", premium: "dash", enterprise: "check" },
+  { feature: "영상 화질", premium: "FHD (1080p)", enterprise: "FHD (1080p)" },
+  { feature: "1:1 전담 매니저 배정", premium: "check", enterprise: "check" },
+  { feature: "전용 도메인 연결", premium: "check", enterprise: "check" },
+  { feature: "전용 결제 모듈", premium: "check", enterprise: "check" },
+  { feature: "교육운영 AI", premium: "check", enterprise: "check" },
+  { feature: "출결 & 진도율 관리", premium: "check", enterprise: "check" },
+  { feature: "수강생 유입/전환 데이터", premium: "check", enterprise: "check" },
+  { feature: "교재 발주 및 배송 지원", premium: "dash", enterprise: "check" },
+  { feature: "맞춤형 디자인", premium: "dash", enterprise: "check" },
+  { feature: "맞춤형 기능", premium: "dash", enterprise: "check" },
 ];
 
 function Cell({ value, isSubtext, mobile }: { value: CellValue; isSubtext?: boolean; mobile?: boolean }) {
@@ -81,7 +81,7 @@ function Cell({ value, isSubtext, mobile }: { value: CellValue; isSubtext?: bool
     return (
       <div className="text-center">
         <p className={`text-[#f8faff] font-medium ${textSm}`}>{main}</p>
-        {!mobile && <p className="text-[#f8faff] font-medium text-[12px] leading-[18px] tracking-[-0.18px] opacity-60">{sub}</p>}
+        {!mobile && <p className="text-[#f8faff] font-medium text-[12px] leading-[18px] tracking-[-0.18px]">{sub}</p>}
       </div>
     );
   }
@@ -93,7 +93,7 @@ function Cell({ value, isSubtext, mobile }: { value: CellValue; isSubtext?: bool
   );
 }
 
-const HIGHLIGHT_DIVIDER_BEFORE = 11;
+const HIGHLIGHT_DIVIDER_BEFORE = 4;
 
 export default function PlanComparisonSection() {
   return (
@@ -123,15 +123,15 @@ export default function PlanComparisonSection() {
             <Fragment key={`mob-${i}`}>
               {i === HIGHLIGHT_DIVIDER_BEFORE && <Divider highlight />}
               <div className="flex items-center w-full">
-                <div className="flex flex-1 min-h-[52px] items-center justify-center px-3">
+                <div className="flex flex-1 min-h-[52px] items-center justify-center px-3" style={{ maxWidth: "33.333%" }}>
                   <span className="text-[#f8faff] text-[11px] font-medium leading-[16px] tracking-[-0.18px] text-center">
                     {row.feature}
                   </span>
                 </div>
-                <div className="flex flex-1 min-h-[52px] items-center justify-center px-1">
+                <div className="flex flex-1 min-h-[52px] items-center justify-center px-1" style={{ maxWidth: "33.333%" }}>
                   <Cell value={row.premium} isSubtext={row.isSubtext} mobile />
                 </div>
-                <div className="flex flex-1 min-h-[52px] items-center justify-center px-1">
+                <div className="flex flex-1 min-h-[52px] items-center justify-center px-1" style={{ maxWidth: "33.333%" }}>
                   <Cell value={row.enterprise} isSubtext={row.isSubtext} mobile />
                 </div>
               </div>
