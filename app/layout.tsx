@@ -3,6 +3,9 @@ import Script from "next/script";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  verification: {
+    google: "oi37zmTVNaAEZLwJTww-MSkczwBycgrtPnBc0IDD674",
+  },
   other: {
     "naver-site-verification": "22fa6d23964b1a681b277babfdb92dc7e7f49d0e",
   },
