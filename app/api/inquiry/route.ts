@@ -1,10 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 
 const CONTACT_METHOD_LABELS: Record<string, string> = {
-  kakao: "카카오톡",
+  kakao: "카카오톡/문자",
   email: "이메일",
   phone: "전화",
-  sms: "문자",
 };
 
 const PLAN_LABELS: Record<string, string> = {
@@ -37,37 +36,22 @@ export async function POST(request: NextRequest) {
 
   const slackPayload = {
     channel,
-    text: "📋 새 도입 상담 신청이 접수되었습니다.",
+    text: "제로피에듀 도입 상담 신청",
     blocks: [
       {
         type: "header",
         text: {
           type: "plain_text",
-          text: "📋 새 도입 상담 신청",
+          text: "📋 제로피에듀 도입 상담 신청",
         },
       },
       {
         type: "section",
-        fields: [
-          { type: "mrkdwn", text: `*플랜*\n${planLabel}` },
-          { type: "mrkdwn", text: `*기관명*\n${institution}` },
-          { type: "mrkdwn", text: `*담당자*\n${representativeName}` },
-          { type: "mrkdwn", text: `*이메일*\n${email}` },
-          { type: "mrkdwn", text: `*연락처*\n${phone}` },
-          { type: "mrkdwn", text: `*연락 방법*\n${contactLabel}` },
-        ],
+        text: {
+          type: "mrkdwn",
+          text: `>*플랜 :* ${planLabel}\n>*담당자 :* ${representativeName} / ${institution} (${email} / ${phone})\n>*연락 방법 :* ${contactLabel}${comments ? `\n>*추가 내용 :* ${comments}` : ""}`,
+        },
       },
-      ...(comments
-        ? [
-            {
-              type: "section",
-              text: {
-                type: "mrkdwn",
-                text: `*추가 내용*\n${comments}`,
-              },
-            },
-          ]
-        : []),
     ],
   };
 

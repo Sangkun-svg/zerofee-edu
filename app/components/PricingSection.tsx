@@ -176,7 +176,7 @@ function EnterpriseCard({ mobile }: { mobile?: boolean }) {
 
 export default function PricingSection() {
   return (
-    <section className="w-full bg-[#0b0e14] py-[104px] sm:py-36">
+    <section id="pricing" className="w-full bg-[#0b0e14] py-[104px] sm:py-36">
       {/* 모바일 */}
       <div className="flex sm:hidden flex-col gap-8 items-center px-5">
         <div className="flex flex-col gap-2 items-center text-center w-full">

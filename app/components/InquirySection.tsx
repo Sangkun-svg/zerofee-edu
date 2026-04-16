@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 type Plan = "premium" | "enterprise";
 type ContactMethod = "kakao" | "email" | "phone";
@@ -24,6 +24,58 @@ const inputCls =
   "bg-[#0b0e14] border border-[#1b1f2a] h-[52px] w-full px-4 rounded-2xl text-[#f8faff] text-[14px] font-medium leading-[21px] tracking-[-0.21px] placeholder-[#a9b1c1] outline-none focus:border-[#3d82f5] transition-colors";
 const labelCls =
   "text-[#f8faff] text-[14px] font-medium leading-[21px] tracking-[-0.21px] whitespace-nowrap";
+
+const contactMethodMeta: Record<ContactMethod, { label: string; particle: string }> = {
+  kakao: { label: "카카오톡 / 문자", particle: "으로" },
+  email: { label: "이메일", particle: "로" },
+  phone: { label: "전화", particle: "로" },
+};
+
+function SuccessPopup({ contactMethod, onClose }: { contactMethod: ContactMethod; onClose: () => void }) {
+  const { label, particle } = contactMethodMeta[contactMethod];
+
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
+    document.addEventListener("keydown", handler);
+    return () => document.removeEventListener("keydown", handler);
+  }, [onClose]);
+
+  return (
+    <div className="fixed inset-0 z-[100] flex items-center justify-center px-5" onClick={onClose}>
+      <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
+      <div
+        className="relative bg-[#0f1219] border border-[#1b1f2a] rounded-[24px] p-8 flex flex-col gap-8 items-end w-full max-w-[600px]"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* 헤더 */}
+        <div className="flex flex-col gap-2 items-start w-full">
+          <div className="flex items-center justify-between w-full">
+            <p className="text-[#f8faff] text-[20px] font-bold leading-[30px] tracking-[-0.3px]">
+              상담 신청이 완료되었습니다
+            </p>
+            <button onClick={onClose} className="shrink-0 flex items-center justify-center size-6 text-[#f8faff] transition-colors">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2 2L14 14M14 2L2 14" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+              </svg>
+            </button>
+          </div>
+          <p className="text-[#f8faff] text-[16px] font-medium leading-[24px] tracking-[-0.24px]">
+            제로피에듀를 찾아주셔서 감사합니다.<br />
+            담당자가 1영업일 이내로 {label}{particle} 연락드리도록 하겠습니다.
+          </p>
+        </div>
+
+        {/* 확인 버튼 */}
+        <button
+          onClick={onClose}
+          className="bg-[#3d82f5] px-4 h-[52px] rounded-[16px] text-[#f8faff] text-[14px] font-bold leading-[21px] hover:opacity-90 transition-opacity"
+        >
+          확인
+        </button>
+      </div>
+    </div>
+  );
+}
 
 const planOptions: { value: Plan; label: string }[] = [
   { value: "premium", label: "Premium Plan" },
@@ -112,7 +164,21 @@ function FormFields({
         </div>
         <div className="flex flex-1 flex-col gap-2 items-start w-full">
           <label className={labelCls}>연락처*</label>
-          <input type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="연락처를 입력해주세요." required className={inputCls} />
+          <input
+            type="tel"
+            inputMode="numeric"
+            value={phone}
+            onChange={(e) => {
+              const digits = e.target.value.replace(/\D/g, "").slice(0, 11);
+              const formatted = digits.replace(/^(\d{3})(\d{1,4})?(\d{1,4})?$/, (_, p1, p2, p3) =>
+                p3 ? `${p1}-${p2}-${p3}` : p2 ? `${p1}-${p2}` : p1
+              );
+              setPhone(formatted);
+            }}
+            placeholder="010-0000-0000"
+            required
+            className={inputCls}
+          />
         </div>
       </div>
 
@@ -153,9 +219,6 @@ function FormFields({
         <button type="button" className="text-[#a9b1c1] text-[14px] font-medium leading-[21px] tracking-[-0.14px] whitespace-nowrap hover:text-[#f8faff] transition-colors">보기</button>
       </div>
 
-      {status === "success" && (
-        <p className="text-[#3d82f5] text-[14px] font-medium w-full text-center">상담 신청이 완료되었습니다. 1영업일 이내로 연락드리겠습니다.</p>
-      )}
       {status === "error" && (
         <p className="text-red-400 text-[14px] font-medium w-full text-center">신청 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.</p>
       )}
@@ -173,6 +236,20 @@ export default function InquirySection() {
   const [phone, setPhone] = useState("");
   const [comments, setComments] = useState("");
   const [status, setStatus] = useState<Status>("idle");
+  const [showPopup, setShowPopup] = useState(false);
+  const [submittedContactMethod, setSubmittedContactMethod] = useState<ContactMethod>("kakao");
+
+  function resetForm() {
+    setPlan("premium");
+    setContactMethod("kakao");
+    setAgreed(false);
+    setInstitution("");
+    setRepName("");
+    setEmail("");
+    setPhone("");
+    setComments("");
+    setStatus("idle");
+  }
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -188,7 +265,9 @@ export default function InquirySection() {
         body: JSON.stringify({ plan, institution, representativeName: repName, email, phone, contactMethod, comments }),
       });
       if (!res.ok) { setStatus("error"); return; }
-      setStatus("success");
+      setSubmittedContactMethod(contactMethod);
+      resetForm();
+      setShowPopup(true);
     } catch {
       setStatus("error");
     }
@@ -222,6 +301,12 @@ export default function InquirySection() {
 
   return (
     <section id="contact" className="w-full">
+      {showPopup && (
+        <SuccessPopup
+          contactMethod={submittedContactMethod}
+          onClose={() => setShowPopup(false)}
+        />
+      )}
       {/* 모바일 */}
       <div className="flex md:hidden flex-col gap-8 items-center px-5 py-[104px]">
         <div className="flex flex-col gap-2 items-start w-fit">
