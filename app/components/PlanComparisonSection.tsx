@@ -39,7 +39,13 @@ interface Row {
 const rows: Row[] = [
   { feature: "카드 수수료", premium: "2.9%", enterprise: "2.9%" },
   {
-    feature: "결제 & 리포트 등 알림톡 발송",
+    feature: "결제 알림톡 발송",
+    premium: "카카오 알림톡 발송 무제한\n* 무료",
+    enterprise: "카카오 알림톡 발송 무제한\n* 무료",
+    isSubtext: true,
+  },
+  {
+    feature: "레포트 & 질의응답 & 후기 알림톡 발송",
     premium: "카카오 알림톡 발송 400건 / 월\n* 초과시, 건당 50원(VAT별도)",
     enterprise: "카카오 알림톡 발송 무제한\n* 무료",
     isSubtext: true,
@@ -52,7 +58,7 @@ const rows: Row[] = [
   },
   {
     feature: "PDF & 영상 파일 용량",
-    premium: "용량 500GB / 월\n* 초과시, 1GB당 30원(VAT별도)",
+    premium: "용량 무제한\n* 무료",
     enterprise: "용량 무제한\n* 무료",
     isSubtext: true,
   },
@@ -66,6 +72,7 @@ const rows: Row[] = [
   { feature: "교재 발주 및 배송 지원", premium: "dash", enterprise: "check" },
   { feature: "맞춤형 디자인", premium: "dash", enterprise: "check" },
   { feature: "맞춤형 기능", premium: "dash", enterprise: "check" },
+  { feature: "어플리케이션 출시", premium: "dash", enterprise: "check" },
 ];
 
 function Cell({ value, isSubtext, mobile }: { value: CellValue; isSubtext?: boolean; mobile?: boolean }) {
