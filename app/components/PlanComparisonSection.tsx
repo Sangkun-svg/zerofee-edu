@@ -156,13 +156,13 @@ export default function PlanComparisonSection() {
           </div>
           <ColDivider />
           <div className="flex flex-1 flex-col h-full items-center justify-center px-8">
-            <span className="text-white text-[16px] font-bold leading-6 tracking-[-0.24px] whitespace-nowrap">
+            <span className="text-white text-[14px] font-bold leading-6 tracking-[-0.24px] whitespace-nowrap">
               Premium Plan
             </span>
           </div>
           <ColDivider />
           <div className="flex flex-1 flex-col h-full items-center justify-center px-8">
-            <span className="text-white text-[16px] font-bold leading-6 tracking-[-0.24px] whitespace-nowrap">
+            <span className="text-white text-[14px] font-bold leading-6 tracking-[-0.24px] whitespace-nowrap">
               Enterprise Plan
             </span>
           </div>
