@@ -225,7 +225,7 @@ export default function FeaturesSection() {
         <div className="max-w-[1440px] mx-auto px-10">
           <div className="flex gap-10 items-start">
             {/* Left sticky heading */}
-            <div className="sticky top-[224px] min-w-[300px] max-w-[370px]">
+            <div className="sticky top-[224px] min-w-[370px] max-w-[370px]">
               <h2 className="text-[#fefefe] text-[48px] font-black leading-[72px] tracking-[-1.2px]">
                 가장 쉽고
                 <br />
