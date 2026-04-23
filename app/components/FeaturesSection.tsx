@@ -35,7 +35,6 @@ const features = [
       "콘텐츠 유출을 완벽하게 차단합니다.",
     ],
     pcImg: "feature-pc-1.png",
-    mobileImg: "/images/feature-mobile-1.png",
   },
   {
     badge: "2",
@@ -45,7 +44,6 @@ const features = [
       "필요한 내용은 모두 카카오 알림톡으로 자동 발송됩니다.",
     ],
     pcImg: "feature-pc-2.png",
-    mobileImg: "/images/feature-mobile-2.png",
   },
   {
     badge: "3",
@@ -56,7 +54,6 @@ const features = [
       "AI가 완성하는 스마트한 질의응답 시스템을 경험해 보세요.",
     ],
     pcImg: "feature-pc-3.png",
-    mobileImg: "/images/feature-mobile-2.png",
   },
   {
     badge: "4",
@@ -66,8 +63,7 @@ const features = [
       "일반 PG사 계약보다 최대 0.5% 낮은 수수료로",
       "결제 모듈을 제공합니다.",
     ],
-    pcImg: "f-4.png",
-    mobileImg: "/images/feature-mobile-2.png",
+    pcImg: "f-5.png",
   },
 ];
 

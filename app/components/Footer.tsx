@@ -1,11 +1,11 @@
-function TossBadge() {
+function NiceBadge() {
   return (
     <div className="flex items-center gap-1 h-10 px-4 bg-[#0f1219] border border-[#1b1f2a] rounded-[24px] shrink-0 w-fit">
       <div className="size-5 overflow-hidden relative shrink-0">
-        <img src="/images/footer-toss.png" alt="" className="absolute size-[121.71%] -left-[10.85%] -top-[9.91%] max-w-none" />
+        <img src="/images/niceLogo.png" alt="" className="" />
       </div>
       <span className="text-[#a9b1c1] text-[12px] font-medium leading-[18px] tracking-[-0.18px] whitespace-nowrap">
-        토스페이먼츠 에스크로 확인증
+        나이스페이먼츠 에스크로 확인증
       </span>
     </div>
   );
@@ -61,7 +61,7 @@ export default function Footer() {
               제로피는 통신판매 중개자이며, 통신판매의 당사자가 아닙니다.
             </p>
           </div>
-          <TossBadge />
+          <NiceBadge />
           <SgicBadge />
         </div>
 
@@ -91,7 +91,7 @@ export default function Footer() {
 
         {/* 모바일에서만 보이게 */}
         <div className="md:hidden flex flex-col gap-1 flex-wrap">
-          <TossBadge />
+          <NiceBadge />
           <SgicBadge />
         </div>
 

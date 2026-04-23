@@ -1,4 +1,5 @@
-const imgTossIcon = "/images/toss-icon.png";
+const imgTossIcon = "/images/nicepayment.png";
+// const imgTossIcon = "/images/toss-icon.png";
 const imgTossMask = "/images/toss-mask.png";
 
 function Divider({ highlight }: { highlight?: boolean }) {
@@ -57,7 +58,7 @@ function FeeTable({ rows, mobile }: { rows: FeeRow[]; mobile?: boolean }) {
         <ColDivider />
         <div className="flex h-full items-center justify-center flex-1">
           <span className={`text-[#F8FAFF] font-bold whitespace-nowrap tracking-[0.18px] ${textSize}`}>
-            일반계약
+            타사계약
           </span>
         </div>
         <ColDivider />
@@ -111,21 +112,14 @@ export default function TossPaymentsFeeSection() {
         {/* 로고 + 텍스트 */}
         <div className="flex flex-col gap-5 items-center">
           <div className="h-[52px] flex items-center gap-3">
-            <div className="relative h-[41px] w-[47px] overflow-hidden">
-              <img src={imgTossIcon} alt="" className="absolute h-full max-w-none" style={{ width: "527%" }} />
+          <div className="h-[54px] w-[200px] overflow-hidden">
+              <img src={imgTossIcon} alt=""  />
             </div>
-            <div className="h-[52px] w-[198px] bg-white" style={{
-              maskImage: `url('${imgTossMask}')`,
-              WebkitMaskImage: `url('${imgTossMask}')`,
-              maskSize: "100% auto",
-              maskRepeat: "no-repeat",
-              maskPosition: "center",
-            }} />
           </div>
           <div className="flex flex-col gap-2 items-center text-center">
             <div className="text-[#f8faff] text-[28px] font-bold leading-[36px] tracking-[-0.42px]">
               <p>제로피에듀는</p>
-              <p>토스페이먼츠 공식 제휴사입니다</p>
+              <p>나이스페이먼츠 공식 제휴사입니다</p>
             </div>
             <p className="text-[#f8faff] text-[14px] font-medium leading-[21px] tracking-[-0.21px]">
               * 영중소(매출) 구간에 따라 수수료가 더 낮아질 수 있습니다.
@@ -139,21 +133,14 @@ export default function TossPaymentsFeeSection() {
       <div className="hidden md:flex max-w-[1440px] mx-auto px-10 items-center justify-between">
         <div className="flex flex-col gap-5 shrink-0">
           <div className="h-[52px] flex items-center gap-3">
-            <div className="relative h-[41px] w-[47px] overflow-hidden">
-              <img src={imgTossIcon} alt="" className="absolute h-full max-w-none" style={{ width: "527%" }} />
+            <div className="h-[54px] w-[200px] overflow-hidden">
+              <img src={imgTossIcon} alt=""  />
             </div>
-            <div className="h-[52px] w-[198px] bg-white" style={{
-              maskImage: `url('${imgTossMask}')`,
-              WebkitMaskImage: `url('${imgTossMask}')`,
-              maskSize: "100% auto",
-              maskRepeat: "no-repeat",
-              maskPosition: "center",
-            }} />
           </div>
           <div className="flex flex-col gap-2">
             <div className="text-[#f8faff] text-[28px] font-bold leading-[36px] tracking-[-0.42px]">
               <p>제로피에듀는</p>
-              <p>토스페이먼츠 공식 제휴사입니다</p>
+              <p>나이스페이먼츠 공식 제휴사입니다</p>
             </div>
             <p className="text-[#f8faff] text-[14px] font-medium leading-[21px] tracking-[-0.21px]">
               * 영중소(매출) 구간에 따라 수수료가 더 낮아질 수 있습니다.

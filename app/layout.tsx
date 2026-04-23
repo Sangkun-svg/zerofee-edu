@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   description:
     "VOD 인강 수강, AI 수강생 관리, 결제 알림톡 자동화까지 제로피에듀에서 한 번에 완성하세요. 온라인 학원, 인강 플랫폼, AI 교육, 학원 자동화 솔루션 제로피에듀",
   icons: {
-    icon: "/images/zerofee-favicon.png",
+    icon: "/images/eduFavicon.png",
   },
   openGraph: {
     title: "제로피에듀",
