@@ -30,6 +30,7 @@ const feeRows: FeeRow[] = [
   { label: "가입비",   normal: "220,000원", affiliate: "면제",  savings: "100%" },
   { label: "연회비",   normal: "110,000원", affiliate: "면제",  savings: "100%" },
   { label: "정산주기",   normal: "5일", affiliate: "3일",  savings: "2일" },
+  
   { label: "카드결제", normal: "3.4%",      affiliate: "2.9%",  savings: "0.5%" },
   { label: "간편결제", normal: "3.4%",      affiliate: "2.9%",  savings: "0.5%" },
 ];
